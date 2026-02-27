@@ -9,18 +9,18 @@
 @import "./gradient-buttons.css";
 /* 加密内容样式已移除，现在直接使用非加密文章的样式 */
 
-/* 导入 ZenMaruGothic-Medium 字体 */
+/* 导入 Comfortaa 字体 */
 @font-face {
-  font-family: "ZenMaruGothic-Medium";
-  src: url("/assets/font/ZenMaruGothic-Medium.woff2") format("woff2");
+  font-family: "Comfortaa-Regular";
+  src: url("/assets/font/Comfortaa-Regular.ttf") format("truetype");
   font-weight: 500;
   font-display: swap;
 }
 
-/* 导入 萝莉体 第二版 字体 */
+/* 导入 Comfortaa-思源黑体混合 字体 */
 @font-face {
-  font-family: "萝莉体 第二版";
-  src: url("/assets/font/萝莉体 第二版.woff2") format("woff2");
+  font-family: "SourceHanSans-Normal";
+  src: url("/assets/font/sourcehansans_subset_and_comfortaa_merged_normal.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -229,7 +229,7 @@ html {
   }
 
   /* 全屏壁纸模式下的半透明效果 - 使用!important确保优先级 */
-  .wallpaper-transparent .card-base {
+  /* .wallpaper-transparent .card-base {
     background: var(--card-bg-transparent) !important;
     backdrop-filter: blur(8px) !important;
     -webkit-backdrop-filter: blur(8px) !important;
@@ -239,15 +239,15 @@ html {
     background: var(--card-bg-transparent) !important;
     backdrop-filter: blur(8px) !important;
     -webkit-backdrop-filter: blur(8px) !important;
-  }
+  } */
 
   /* 确保嵌套的卡片元素在全屏壁纸模式下也应用半透明效果 */
-  .wallpaper-transparent .card-base .card-base,
+  /* .wallpaper-transparent .card-base .card-base,
   body.wallpaper-transparent .card-base .card-base {
     background: var(--card-bg-transparent) !important;
     backdrop-filter: blur(8px) !important;
     -webkit-backdrop-filter: blur(8px) !important;
-  }
+  } */
 
   .wallpaper-transparent .float-panel {
     @apply bg-[var(--card-bg-transparent)] backdrop-blur-sm;

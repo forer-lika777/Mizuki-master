@@ -166,7 +166,6 @@ if (siteConfig.font) {
 <html
 	lang={siteLang}
 	class="bg-[var(--page-bg)] text-[14px] md:text-[16px]"
-	data-overlayscrollbars-initialize
 >
 	<head>
 		<!-- 第三方分析脚本 - 延迟加载优化 -->
@@ -381,7 +380,6 @@ if (siteConfig.font) {
 			{ "lg:is-home": isHomePage, "enable-banner": enableBanner },
 		]}
 		style={bodyFontFamily ? `font-family: ${bodyFontFamily};` : ""}
-		data-overlayscrollbars-initialize
 	>
 		<noscript
 			><iframe
@@ -420,30 +418,34 @@ if (siteConfig.font) {
 		.enable-banner.is-home #banner-wrapper {
 			@apply h-[var(--banner-height-home)] translate-y-[var(--banner-height-extend)];
 		}
-		.enable-banner #banner-wrapper {
-			@apply h-[var(--banner-height-home)];
-		}
+		/* .enable-banner #banner-wrapper {
+			@apply h-[var(--banner-height-home)] translate-y-[15rem];
+		} */
 		.enable-banner.is-home #banner {
 			@apply h-[var(--banner-height-home)] translate-y-0;
 		}
 		.enable-banner #banner {
-			@apply h-[var(--banner-height-home)] translate-y-[var(--bannerOffset)];
+			@apply h-[var(--banner-height-home)];
 		}
 		.enable-banner.is-home #main-grid {
 			@apply translate-y-[var(--banner-height-extend)];
 		}
-		.enable-banner #top-row {
-			@apply h-[calc(var(--banner-height-home)_-_4.5rem)] transition-all duration-300;
+		.enable-banner #main-grid {
+			@apply translate-y-[-5rem];
 		}
 		.enable-banner.is-home #sidebar-sticky {
 			@apply top-[calc(1rem_-_var(--banner-height-extend))];
 		}
-		.navbar-hidden {
-			@apply opacity-0 -translate-y-16;
+
+		#banner-wrapper {
+			transition: transform 700ms cubic-bezier(0.1, 0.7, 0.15, 1) !important;
+		}
+		#main-grid {
+			transition: transform 700ms cubic-bezier(0.1, 0.7, 0.15, 1) !important;
 		}
 
 		/* Water waves animation */
-		.waves > .parallax use {
+		/* .waves > .parallax use {
 			animation: wave 25s cubic-bezier(0.5, 0.5, 0.45, 0.5) infinite;
 		}
 		@keyframes wave {
@@ -453,19 +455,12 @@ if (siteConfig.font) {
 			100% {
 				transform: translate3d(85px, 0, 0);
 			}
-		}
+		} */
 	}
 </style>
 
 <script>
-	// import { animationManager } from '../utils/animation-utils';
-	import "overlayscrollbars/overlayscrollbars.css";
-	// import {
-	//  OverlayScrollbars,
-	//  // ScrollbarsHidingPlugin,
-	//  // SizeObserverPlugin,
-	//  // ClickScrollPlugin
-	// } from 'overlayscrollbars';
+	// import { animationManager } from '../utils/animation-utils';\
 	// import {getHue, getStoredTheme, setHue, setTheme} from "../utils/setting-utils";
 	import { pathsEqual, url } from "../utils/url-utils";
 	import {
@@ -491,6 +486,7 @@ if (siteConfig.font) {
 	const setTimeout = (callback: any, delay: any) =>
 		window.setTimeout(callback, delay);
 
+	
 	/* Preload fonts */
 	// (async function() {
 	//  try {
@@ -597,6 +593,26 @@ function disableAnimation() {
 	// function _loadHue() {
 	//  setHue(getHue())
 	// }
+	
+	// const osInstance = OverlayScrollbars(document.body, {
+	// 	scrollbars: {
+	// 		autoHide: "leave",
+	// 		autoHideDelay: 400,
+	// 	},
+	// });
+	// osInstance.update();
+
+	// const theme = getStoredTheme();
+	// const targetIsDark = theme === DARK_MODE;
+
+	// const scrollbar = document.querySelectorAll(".os-scrollbar")[1];
+	// if (targetIsDark) {
+	// 	scrollbar?.classList.remove("os-theme-dark");
+	// 	scrollbar?.classList.add("os-theme-light");
+	// } else {
+	// 	scrollbar?.classList.remove("os-theme-light");
+	// 	scrollbar?.classList.add("os-theme-dark");
+	// }
 
 	function initCustomScrollbar() {
 		// 完全禁用OverlayScrollbars的body初始化，避免导致页面重新加载
@@ -646,7 +662,7 @@ function disableAnimation() {
 			element.setAttribute("data-scrollbar-initialized", "true");
 		});
 	}
-
+	
 	function showBanner() {
 		// 使用requestAnimationFrame优化DOM操作
 		requestAnimationFrame(() => {
@@ -949,17 +965,15 @@ function disableAnimation() {
 
 	const setup = () => {
 		// TODO: temp solution to change the height of the banner
-		/*
     window.swup.hooks.on('animation:out:start', () => {
-        const path = window.location.pathname
-        const body = document.querySelector('body')
-        if (path[path.length - 1] === '/' && !body.classList.contains('is-home')) {
-            body.classList.add('is-home')
-        } else if (path[path.length - 1] !== '/' && body.classList.contains('is-home')) {
-            body.classList.remove('is-home')
-        }
+        // const path = window.location.pathname
+        // const body = document.querySelector('body')
+        // if (path[path.length - 1] === '/' && !body.classList.contains('is-home')) {
+        //     body.classList.add('is-home')
+        // } else if (path[path.length - 1] !== '/' && body.classList.contains('is-home')) {
+        //     body.classList.remove('is-home')
+        // }
     })
-*/
 		window.swup.hooks.on("link:click", () => {
 			// Remove the delay for the first time page load
 			document.documentElement.style.setProperty(
@@ -985,7 +999,7 @@ function disableAnimation() {
 			initFancybox();
 			checkKatex();
 			initCustomScrollbar();
-
+			// console.log("content:replace");
 			// 检查当前页面是否为文章页面（有TOC元素）
 			const tocWrapper = document.getElementById("toc-wrapper");
 			const isArticlePage = tocWrapper !== null;
@@ -1033,10 +1047,18 @@ function disableAnimation() {
 			(visit: { to: { url: string } }) => {
 				// 清理上一页的 Fancybox
 				cleanupFancybox();
+				// console.log("visit:start");
+
+				const isHomePage = pathsEqual(visit.to.url, url("/"));
+
+				// console.log("animation:out:start");
+				window.scrollTo({
+					top: 0,
+					behavior: "smooth",
+				});
 
 				// 处理 Banner class 和显示状态
 				const bodyElement = document.querySelector("body");
-				const isHomePage = pathsEqual(visit.to.url, url("/"));
 				if (bodyElement) {
 					if (isHomePage) {
 						bodyElement.classList.add("lg:is-home");
@@ -1079,7 +1101,7 @@ function disableAnimation() {
 				// Control mobile banner visibility based on page with improved staging animation
 				const bannerWrapper = document.getElementById("banner-wrapper");
 				const mainContentWrapper = document.querySelector(
-					".absolute.w-full.z-30",
+					".main-content-layout",
 				);
 
 				if (bannerWrapper && mainContentWrapper) {
@@ -1108,11 +1130,11 @@ function disableAnimation() {
 				}
 
 				// increase the page height during page transition to prevent the scrolling animation from jumping
-				const heightExtend =
-					document.getElementById("page-height-extend");
-				if (heightExtend) {
-					heightExtend.classList.remove("hidden");
-				}
+				// const heightExtend =
+				// 	document.getElementById("page-height-extend");
+				// if (heightExtend) {
+				// 	heightExtend.classList.remove("hidden");
+				// }
 
 				// Hide the TOC while scrolling back to top
 				let toc = document.getElementById("toc-wrapper");
@@ -1129,11 +1151,12 @@ function disableAnimation() {
 				heightExtend.classList.remove("hidden");
 			}
 
+			// console.log("page:view");
+
 			// 确保页面滚动到顶部，特别是移动端banner关闭时
-			window.scrollTo({
-				top: 0,
-				behavior: "instant",
-			});
+			// window.scrollTo({
+			// 	top: 0,
+			// });
 
 			// 同步主题状态 - 解决从首页进入文章页面时代码块渲染问题
 			const storedTheme = localStorage.getItem("theme") || DEFAULT_THEME;
@@ -1181,10 +1204,10 @@ function disableAnimation() {
 						},
 					);
 					document.dispatchEvent(pageLoadedEvent);
-					console.log(
-						"Layout: 触发 mizuki:page:loaded 事件，路径:",
-						window.location.pathname,
-					);
+					// console.log(
+					// 	"Layout: 触发 mizuki:page:loaded 事件，路径:",
+					// 	window.location.pathname,
+					// );
 				}
 			}, 300);
 		});
@@ -1196,6 +1219,8 @@ function disableAnimation() {
 				if (heightExtend) {
 					heightExtend.classList.add("hidden");
 				}
+
+				// console.log("visit:end");
 
 				// Just make the transition looks better
 				const toc = document.getElementById("toc-wrapper");
@@ -1307,7 +1332,7 @@ function disableAnimation() {
 	}
 
 	// 使用节流优化滚动性能
-	window.onscroll = throttle(scrollFunction, 16); // 约60fps
+	// window.onscroll = throttle(scrollFunction, 16); // 约60fps
 
 	window.onresize = () => {
 		// calculate the --banner-height-extend, which needs to be a multiple of 4 to avoid blurry text

@@ -12,7 +12,7 @@
   --nav-radius: var(--radius-std);
 
   /* --- 面板变量 (默认跟随 Navbar，特定情况分离) --- */
-  --panel-bg: var(--card-bg-transparent);
+  --panel-bg: var(--card-bg);
   --panel-blur: blur(20px);
 }
 
@@ -25,14 +25,14 @@
 /* --- 滚动透明度控制 (Dynamic Transparent) --- */
 
 /* Semi (毛玻璃) */
-#navbar[data-dynamic-transparent="semi"] {
+/* #navbar[data-dynamic-transparent="semi"] {
   --nav-bg: var(--card-bg-transparent);
   --nav-blur: blur(8px);
   --nav-shadow: var(--shadow-lg);
-}
+} */
 
 /* None (实心) */
-#navbar[data-dynamic-transparent="none"] {
+#navbar {
   --nav-bg: var(--card-bg);
   --nav-blur: none;
   --nav-shadow: var(--shadow-sm);
@@ -80,12 +80,12 @@ body.wallpaper-transparent #navbar[data-transparent-mode="semifull"][data-is-hom
 }
 
 /* 混合模式滚动后 -> 回归毛玻璃 */
-body.wallpaper-transparent #navbar[data-transparent-mode="semifull"].scrolled {
+/* body.wallpaper-transparent #navbar[data-transparent-mode="semifull"].scrolled {
   --nav-bg: var(--card-bg-transparent);
   --nav-blur: blur(8px);
   --nav-shadow: var(--shadow-lg);
   --nav-radius: var(--radius-std);
-}
+} */
 
 /* 导航栏样式核心 (Navbar Core) */
 #navbar > div {
@@ -96,7 +96,6 @@ body.wallpaper-transparent #navbar[data-transparent-mode="semifull"].scrolled {
   background: var(--nav-bg);
   backdrop-filter: var(--nav-blur);
   box-shadow: var(--nav-shadow);
-  border-radius: var(--nav-radius);
 
   /* 性能优化 */
   will-change: background, backdrop-filter, box-shadow;
@@ -130,7 +129,6 @@ body.wallpaper-transparent #navbar[data-transparent-mode="semifull"].scrolled {
 @media (max-width: 1279px) {
   /* 修正移动端 Navbar 布局 */
   #navbar > div {
-    border-radius: 0.5rem;
     margin: 0;
     width: 100%;
     max-width: none;
