@@ -20,7 +20,7 @@
 
 /* 面板关闭时的状态 */
 .float-panel-closed {
-  transform: scaleY(0) scaleX(0.8);
+  transform: scaleY(0) scaleX(0.9);
   pointer-events: none;
 }
 

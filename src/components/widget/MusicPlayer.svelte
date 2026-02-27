@@ -1,7 +1,7 @@
 <script lang="ts">
 import Icon from "@iconify/svelte";
 import { onDestroy, onMount } from "svelte";
-import { slide } from "svelte/transition";
+import { scale } from "svelte/transition";
 // 从配置文件中导入音乐播放器配置
 import { musicPlayerConfig } from "../../config";
 // 导入国际化相关的 Key 和 i18n 实例
@@ -176,8 +176,8 @@ function togglePlay() {
 
 function toggleExpanded() {
 	isExpanded = !isExpanded;
+    showPlaylist = false;
 	if (isExpanded) {
-		showPlaylist = false;
 		isHidden = false;
 	}
 }
@@ -462,7 +462,7 @@ onDestroy(() => {
 {#if musicPlayerConfig.enable}
 {#if showError}
 <div class="fixed bottom-20 right-4 z-[60] max-w-sm">
-    <div class="bg-red-500 text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-3 animate-slide-up">
+    <div class="bg-red-500 text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-3">
         <Icon icon="material-symbols:error" class="text-xl flex-shrink-0" />
         <span class="text-sm flex-1">{errorMessage}</span>
         <button on:click={hideError} class="text-white/80 hover:text-white transition-colors">
@@ -477,9 +477,9 @@ onDestroy(() => {
      class:hidden-mode={isHidden}>
 
     <!-- 隐藏状态的小圆球 -->
-    <div class="orb-player w-12 h-12 bg-[var(--primary)] rounded-full shadow-lg cursor-pointer transition-all duration-500 ease-in-out flex items-center justify-center hover:scale-110 active:scale-95"
+    <div class="orb-player w-12 h-12 bg-[var(--primary)] rounded-full shadow-lg cursor-pointer transition-all duration-300 ease-in-out flex items-center justify-center hover:scale-110 active:scale-95"
          class:opacity-0={!isHidden}
-         class:scale-0={!isHidden}
+         class:scale-95={!isHidden}
          class:pointer-events-none={!isHidden}
          on:click={toggleHidden}
          on:keydown={(e) => {
@@ -504,7 +504,7 @@ onDestroy(() => {
         {/if}
     </div>
     <!-- 收缩状态的迷你播放器（封面圆形） -->
-    <div class="mini-player card-base bg-[var(--float-panel-bg)] shadow-xl rounded-2xl p-3 transition-all duration-500 ease-in-out"
+    <div class="mini-player card-base bg-[var(--float-panel-bg)] shadow-xl rounded-2xl p-3 transition-all duration-300 ease-in-out"
          class:opacity-0={isExpanded || isHidden}
          class:scale-95={isExpanded || isHidden}
          class:pointer-events-none={isExpanded || isHidden}>
@@ -564,7 +564,7 @@ onDestroy(() => {
         </div>
     </div>
     <!-- 展开状态的完整播放器（封面圆形） -->
-    <div class="expanded-player card-base bg-[var(--float-panel-bg)] shadow-xl rounded-2xl p-4 transition-all duration-500 ease-in-out"
+    <div class="expanded-player card-base bg-[var(--float-panel-bg)] shadow-xl rounded-2xl p-4 transition-all duration-300 ease-in-out"
          class:opacity-0={!isExpanded}
          class:scale-95={!isExpanded}
          class:pointer-events-none={!isExpanded}>
@@ -700,8 +700,8 @@ onDestroy(() => {
         </div>
     </div>
     {#if showPlaylist}
-        <div class="playlist-panel float-panel fixed bottom-20 right-4 w-80 max-h-96 overflow-hidden z-50"
-             transition:slide={{ duration: 300, axis: 'y' }}>
+        <div class="playlist-panel bg-[var(--float-panel-bg)] shadow-xl rounded-2xl fixed bottom-[17rem] right-4 w-80 max-h-96 overflow-hidden z-50 !transition-all !duration-300 !ease-in-out !top-auto"
+             transition:scale={{ duration: 300, start: 0.95 }}>
             <div class="playlist-header flex items-center justify-between p-4 border-b border-[var(--line-divider)]">
                 <h3 class="text-lg font-semibold text-90">{i18n(Key.musicPlayerPlaylist)}</h3>
                 <button class="btn-plain w-8 h-8 rounded-lg" on:click={togglePlaylist}>
@@ -883,19 +883,6 @@ onDestroy(() => {
         height: 32px;
 	}
 }
-@keyframes slide-up {
-    from {
-        transform: translateY(100%);
-        opacity: 0;
-	}
-    to {
-        transform: translateY(0);
-        opacity: 1;
-	}
-}
-.animate-slide-up {
-    animation: slide-up 0.3s ease-out;
-}
 @media (hover: none) and (pointer: coarse) {
     .music-player button,
     .playlist-item {
@@ -917,7 +904,7 @@ onDestroy(() => {
 }
 
 .cover-container img {
-    animation: spin-continuous 3s linear infinite;
+    animation: spin-continuous 15s linear infinite;
     animation-play-state: paused;
 }
 
