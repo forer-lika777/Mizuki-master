@@ -553,7 +553,7 @@ onDestroy(() => {
         </div>
     </div>
     <!-- 展开状态的完整播放器（封面圆形） -->
-    <div class="expanded-player card-base bg-[var(--float-panel-bg)] shadow-xl rounded-2xl p-4 transition-all duration-300 ease-in-out"
+    <div class="expanded-player card-base bg-[var(--float-panel-bg)] shadow-xl rounded-2xl p-4 transition-all duration-300 ease-in-out z-50"
          class:opacity-0={!isExpanded}
          class:scale-95={!isExpanded}
          class:pointer-events-none={!isExpanded}>
@@ -689,7 +689,7 @@ onDestroy(() => {
         </div>
     </div>
     {#if showPlaylist}
-        <div class="playlist-panel bg-[var(--float-panel-bg)] shadow-xl rounded-2xl fixed bottom-[17rem] right-4 w-80 max-h-96 overflow-hidden z-50 !transition-all !duration-300 !ease-in-out !top-auto"
+        <div class="playlist-panel bg-[var(--float-panel-bg)] shadow-xl rounded-2xl fixed bottom-[17rem] right-4 w-80 max-h-96 overflow-hidden !transition-all !duration-300 !ease-in-out !top-auto"
              transition:scale={{ duration: 300, start: 0.95 }}>
             <div class="playlist-header flex items-center justify-between p-4 border-b border-[var(--line-divider)]">
                 <h3 class="text-lg font-semibold text-90">{i18n(Key.musicPlayerPlaylist)}</h3>
