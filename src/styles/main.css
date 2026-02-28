@@ -515,12 +515,12 @@ html {
 
 /* 白天模式下选中文本的颜色 */
 :root:not(.dark) ::selection {
-  color: #000000;
+  color: #ffffff;
 }
 
 /* 夜间模式下选中文本的颜色 */
 :root.dark ::selection {
-  color: #ffffff;
+  color: #000000;
 }
 
 .dash-line {
