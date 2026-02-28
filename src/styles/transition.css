@@ -4,48 +4,48 @@
 .transition-main {
   transition: 
     opacity 300ms cubic-bezier(0, 0, 1, 1),
-    transform 300ms cubic-bezier(0.1, 0.7, 0.15, 0.8);
+    transform 300ms cubic-bezier(0.1, 0.7, 0.15, 1);
 }
 
 /* 离开动画 */
 .transition-leaving {
   transition:
-    transform 300ms cubic-bezier(0.1, 0.7, 0.15, 0.8),
+    transform 300ms cubic-bezier(0.1, 0.7, 0.15, 1),
     opacity 300ms cubic-bezier(0.1, 0.9, 0.15, 0.95);
 }
 
 html.is-changing .transition-main {
   transition:
-    opacity 300ms cubic-bezier(0.1, 0.7, 0.15, 0.8),
+    opacity 300ms cubic-bezier(0.1, 0.7, 0.15, 1),
     transform 300ms cubic-bezier(0.1, 0.9, 0.15, 0.95);
 }
 
 html.is-leaving .transition-main {
   transition:
     opacity 300ms cubic-bezier(0.1, 0.8, 0.15, 0.95),
-    transform 300ms cubic-bezier(0.1, 0.7, 0.15, 0.8);
+    transform 300ms cubic-bezier(0.1, 0.7, 0.15, 1);
 }
 
 /* 进入动画 */
 html.is-animating .transition-main {
   opacity: 0;
-  transform: translateY(1.5rem);
+  transform: translateY(1.5rem) translateX(1rem);
 }
 
-/* 离开动画 - 向左上角滑出 */
-html.is-animating.is-leaving .transition-leaving {
-  transform: translateY(-1rem);
+/* 离开动画 */
+html.is-leaving .transition-main {
+  transform: translateY(0rem) translateX(0rem);
   opacity: 0;
 }
 
 /* Swup fade 动画 - 保持兼容性 */
 /* html.is-changing .transition-swup-fade {
   transition: all 300ms ease-out;
-}
+} */
 
-html.is-animating .transition-swup-fade {
+/* html.is-animating .transition-swup-fade {
   opacity: 0;
-  transform: translateY(1.5rem);
+  transform: translateY(1.5rem) translateX(1rem);
 } */
 
 /* 增强的淡入动画 - 添加侧滑效果 */
@@ -74,12 +74,12 @@ html.is-animating .transition-swup-fade {
 /* 页面加载动画 */
 .onload-animation {
   opacity: 0;
-  animation: fade-in-up 300ms cubic-bezier(0.1, 0.9, 0.15, 0.95) forwards;
+  animation: fade-in-up 600ms cubic-bezier(0.1, 0.7, 0.15, 1) forwards;
 }
 
 .onload-animation-fade-in {
   opacity: 0;
-  animation: fade-in 300ms cubic-bezier(0.1, 0.9, 0.15, 0.95) forwards;
+  animation: fade-in 600ms cubic-bezier(0.1, 0.7, 0.15, 1) forwards;
 }
 
 @keyframes fade-in {
@@ -174,7 +174,7 @@ html.is-animating .transition-swup-fade {
   }
 
   /* 移动端优化：添加硬件加速和性能优化 */
-  .transition-main,
+  /* .transition-main,
   .transition-leaving,
   .onload-animation,
   .transition-slide-in,
@@ -185,7 +185,7 @@ html.is-animating .transition-swup-fade {
     backface-visibility: hidden;
     -webkit-perspective: 1000;
     perspective: 1000;
-  }
+  } */
 }
 
 /* 减少动画的用户偏好设置 */

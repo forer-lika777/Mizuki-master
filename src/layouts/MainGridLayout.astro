@@ -597,7 +597,7 @@ const transparentClass = "";
     </div>
 
     <!-- Banner - 始终渲染，通过 JS 控制显示隐藏 -->
-    <div id="banner-wrapper" class={`col-start-1 row-start-1 absolute z-10 w-full transition duration-[400ms] overflow-hidden ${mobileNonHomeBannerClass}`} style={`top: -${BANNER_HEIGHT_EXTEND}vh`}>
+    <div id="banner-wrapper" class={`col-start-1 row-start-1 absolute z-10 w-full overflow-hidden ${mobileNonHomeBannerClass}`} style={``}>
 
         {siteConfig.banner.carousel?.enable && ((bannerImages.desktop && Array.isArray(bannerImages.desktop) && bannerImages.desktop.length > 1) || (bannerImages.mobile && Array.isArray(bannerImages.mobile) && bannerImages.mobile.length > 1)) ? (
             <!-- Carousel mode for multiple images -->
@@ -620,7 +620,7 @@ const transparentClass = "";
                         }
                         
                         return (
-                            <li class={`carousel-item absolute inset-0 transition-all duration-500 ${index === 0 ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}`}>
+                            <li class={`carousel-item absolute inset-0 ${index === 0 ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}`}>
                                 <!-- Mobile: use mobile-specific images -->
                                 {hasMobileImage && (
                                     <ImageWrapper 
@@ -795,7 +795,7 @@ const transparentClass = "";
     </div>
 
     <!-- Main content -->
-    <div class={`main-content-layout transition duration-[400ms] absolute w-full z-30 pointer-events-none ${mobileNonHomeBannerClass ? 'mobile-main-no-banner' : ''} ${siteConfig.wallpaperMode.defaultMode === 'none' ? 'no-banner-layout' : ''} ${transparentClass}`} style={`top: ${finalMainPanelTop}`}>
+    <div class={`main-content-layout absolute w-full z-30 pointer-events-none ${mobileNonHomeBannerClass ? 'mobile-main-no-banner' : ''} ${siteConfig.wallpaperMode.defaultMode === 'none' ? 'no-banner-layout' : ''} ${transparentClass}`} style={`top: ${finalMainPanelTop}`}>
         <!-- The pointer-events-none here prevent blocking the click event of the TOC -->
         <div class="relative max-w-[var(--page-width)] mx-auto pointer-events-auto">
             <div id="main-grid" class={`w-full left-0 right-0 grid ${gridCols} grid-rows-none md:grid-rows-[auto] mx-auto gap-4 px-2 md:px-4 ${!mobileShowSidebar || !hasMobileDrawerComponents ? 'mobile-no-sidebar' : ''} ${hasRightSidebarComponents ? 'mobile-both-sidebar' : ''}`}
@@ -813,7 +813,6 @@ const transparentClass = "";
                         name="fa7-solid:arrow-up-right-from-square">
                     </Icon>
                 </a>}
-
 
                 {/* 侧边栏和主内容区域容器 */}
                 <div class="contents">
@@ -928,11 +927,8 @@ body.no-banner-mode #toc-inner-wrapper {
 } */
 
 /* 桌面端 banner 模式下的主内容区域位置 */
-@media (min-width: 1280px) {
-    body.enable-banner .main-content-layout {
-        top: 37vh !important;
-    }
-}
+/* @media (min-width: 1280px) {
+} */
 
 /* 移动端无侧边栏布局优化 */
 @media (max-width: 767px) {
@@ -981,15 +977,14 @@ body.no-banner-mode #toc-inner-wrapper {
 @media (max-width: 479px) {
     /* Banner wrapper 高度优化 - 优先保持banner显示 */
     body.enable-banner #banner-wrapper:not(.mobile-hide-banner) {
-        height: 70vh !important; /* 保持较大高度优先显示banner */
-        min-height: 450px;
+        height: 70vh !important; 
+        min-height: 400px;
         max-height: none; /* 移除最大高度限制 */
-        top: 0 !important; /* 移动端从顶部开始，避免被导航栏覆盖 */
     }
     
     /* 主内容区域位置调整 - 确保在banner下面 */
     body.enable-banner .main-content-layout:not(.mobile-main-no-banner) {
-        top: 70vh !important; /* 与banner高度对应 */
+        top: 10vh !important;
         min-height: calc(100vh - 70vh) !important;
     }
     
@@ -1038,12 +1033,12 @@ body.no-banner-mode #toc-inner-wrapper {
         height: 75vh !important;
         min-height: 500px;
         max-height: none; /* 移除最大高度限制 */
-        top: 0 !important; /* 移动端从顶部开始，避免被导航栏覆盖 */
+        top: 0 !important; 
     }
     
     /* 主内容区域位置调整 - 确保在banner下面 */
     body.enable-banner .main-content-layout:not(.mobile-main-no-banner) {
-        top: 75vh !important; /* 与banner高度对应 */
+        top: 10vh !important;
         min-height: calc(100vh - 75vh) !important;
     }
     
@@ -1090,29 +1085,29 @@ body.no-banner-mode #toc-inner-wrapper {
     /* Banner wrapper 高度优化 */
     body.enable-banner #banner-wrapper:not(.mobile-hide-banner) {
         height: 70vh !important;
-        min-height: 500px;
-        top: 0 !important; /* 移动端从顶部开始，避免被导航栏覆盖 */
+        /* min-height: 400px; */
+        top: 0 !important;
     }
     
     /* 主内容区域位置调整 - 确保在banner下面 */
     body.enable-banner .main-content-layout:not(.mobile-main-no-banner) {
-        top: 68vh !important; /* 与banner高度对应 */
+        top: 6vh !important;
         min-height: calc(100vh - 70vh) !important;
     }
     
     /* 横幅文本覆盖层优化 */
     .banner-text-overlay {
-        align-items: center !important; /* 垂直居中 */
-        justify-content: center !important; /* 水平居中 */
+        align-items: center !important; 
+        justify-content: center !important; 
         padding: 2rem !important;
-        text-align: center !important; /* 文字居中对齐 */
+        text-align: center !important; 
     }
     
     /* 文本容器优化 */
     .banner-text-overlay > div {
-        margin-bottom: 0 !important; /* 移除底部边距，保持居中 */
+        margin-bottom: 0 !important; 
         width: 85% !important;
-        text-align: center !important; /* 确保文字居中 */
+        text-align: center !important; 
     }
     
     /* 标题字体优化 */
@@ -1140,7 +1135,7 @@ body.no-banner-mode #toc-inner-wrapper {
     /* 修复双侧边栏模式在平板端的布局问题 */
     .mobile-both-sidebar {
         /* 移除平板端的单列布局限制，让 Tailwind 的 gridCols 处理 */
-        /* grid-template-columns: 1fr !important; */
+        grid-template-columns: 1fr !important;
         /* 确保左右padding对称 */
         padding-left: 1rem !important;
         padding-right: 1rem !important;
@@ -1148,7 +1143,7 @@ body.no-banner-mode #toc-inner-wrapper {
     
     /* 确保平板端主内容区域正确显示 */
     .mobile-both-sidebar main {
-        /* grid-column: 1 / -1 !important; */
+        grid-column: 1 / -1 !important;
         width: 100% !important;
         margin: 0 auto !important;
     }
@@ -1213,165 +1208,163 @@ body.no-banner-mode #toc-inner-wrapper {
 }
 
 /* 移动端图片优化 */
-@media (max-width: 1279px) {
+/* @media (max-width: 1279px) { */
     /* 移动端图片容器优化 */
-    .carousel-item img,
-    #banner img {
-        object-position: center center !important; /* 确保图片居中显示 */
-        transition: transform 0.5s ease-out !important; /* 优化过渡时间，避免与轮播间隔冲突 */
-    }
+    /* .carousel-item img, */
+    /* #banner img { */
+        /* object-position: center center !important; 确保图片居中显示 */
+        /* transition: transform 0.5s ease-out !important; 优化过渡时间，避免与轮播间隔冲突 */
+    /* } */
     
     /* 轮播图片过渡优化 - 与电脑端保持一致 */
-    .carousel-item {
-        transition: all 1s ease-out !important; /* 包含opacity和transform的过渡 */
-        transform-origin: center center !important; /* 确保缩放从中心开始 */
-    }
+    /* .carousel-item { */
+        /* transition: all 1s ease-out !important; 包含opacity和transform的过渡 */
+        /* transform-origin: center center !important; 确保缩放从中心开始 */
+    /* } */
     
     /* 移动端当前图片缩放效果 */
-    .carousel-item.opacity-100.scale-100 {
-        transform: scale(1) !important; /* 当前图片正常大小 */
-        opacity: 1 !important;
-    }
+    /* .carousel-item.opacity-100.scale-100 { */
+        /* transform: scale(1) !important; 当前图片正常大小 */
+        /* opacity: 1 !important; */
+    /* } */
     
     /* 移动端非当前图片缩放效果 */
-    .carousel-item.opacity-0.scale-110 {
-        transform: scale(1.15) !important; /* 非当前图片明显放大 */
-        opacity: 0 !important;
-    }
+    /* .carousel-item.opacity-0.scale-110 { */
+        /* transform: scale(1.15) !important; 非当前图片明显放大 */
+        /* opacity: 0 !important;
+    } */
     
     /* 确保轮播容器有正确的overflow设置 */
-    #banner-carousel {
-        overflow: hidden !important;
-    }
+    /* #banner-carousel { */
+        /* overflow: hidden !important; */
+    /* } */
     
     /* 移动端banner加载动画优化 */
-    .onload-animation-fade-in {
+    /* .onload-animation-fade-in {
         animation: mobile-fade-in 0.8s ease-out forwards !important;
-    }
-}
+    } */
+/* } */
 
 /* 移动端专用淡入动画 - 与电脑端保持一致 */
-@keyframes mobile-fade-in {
+/* @keyframes mobile-fade-in {
     0% {
         opacity: 0;
         transform: scale(1.1);
     }
     100% {
         opacity: 1;
-        transform: scale(1); /* 与电脑端当前图片缩放保持一致 */
+        transform: scale(1); 与电脑端当前图片缩放保持一致
     }
-}
+} */
 
 /* 手机端非首页隐藏banner - 改进的分阶段动画 */
-@media (max-width: 1279px) {
-    #banner-wrapper {
+/* @media (max-width: 1279px) { */
+    /* #banner-wrapper {
         transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease-out;
         transform-origin: top center;
-        /* 硬件加速优化 */
+        
         will-change: transform, opacity;
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
         transform: translateZ(0);
         -webkit-transform: translateZ(0);
-    }
+    } */
     
-    .mobile-hide-banner {
+    /* .mobile-hide-banner {
         transform: translateY(-100%) translateZ(0) !important;
         opacity: 0 !important;
         pointer-events: none !important;
-        /* 快速消失 */
+        
         transition: transform 0.3s ease-in, opacity 0.2s ease-in !important;
-    }
+    } */
     
     /* 手机端非首页时主内容区域从顶部开始 - 延迟出现的动画 */
-    .main-content-layout {
+    /* .main-content-layout {
         transition: top 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
-        /* 硬件加速优化 */
+        
         will-change: top;
-        /* 禁用transform以保证back to top 按钮可以显示 */
+        
         transform: translateZ(0);
         -webkit-transform: translateZ(0);
         
-    }
+    } */
     
-    .main-content-layout.mobile-main-no-banner {
+    /* .main-content-layout.mobile-main-no-banner {
         top: 5.5rem !important;
         min-height: calc(100vh - 5.5rem) !important;
-        /* 内容区域快速上移 */
+        
         transition: top 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s !important;
-    }
-}
+    } */
+/* } */
 
 /* 移动端导航栏与banner的协调 */
-@media (max-width: 1279px) {
-    #navbar-wrapper {
+/* @media (max-width: 1279px) { */
+    /* #navbar-wrapper { */
         /* 移除覆盖样式，让Navbar.astro的圆角和半透明效果生效 */
-    }
+    /* } */
     
     /* 暗色主题下的导航栏 */
-    :root.dark #navbar-wrapper {
+    /* :root.dark #navbar-wrapper { */
         /* 移除覆盖样式，让Navbar.astro的圆角和半透明效果生效 */
-    }
-}
+    /* } */
+/* } */
 
 /* 移动端banner性能优化 */
-@media (max-width: 1279px) {
-    .banner-container {
-        /* 启用硬件加速 */
+/* @media (max-width: 1279px) { */
+    /* .banner-container {
         transform: translateZ(0);
         -webkit-transform: translateZ(0);
         will-change: transform, opacity;
         
-        /* 优化渲染性能 */
         contain: layout style paint;
         
-        /* 减少重绘 */
+        减少重绘
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
-    }
+    } */
 
-    .carousel-item {
+    /* .carousel-item { */
         /* 硬件加速 */
-        transform: translateZ(0);
+        /* transform: translateZ(0);
         -webkit-transform: translateZ(0);
-        will-change: transform, opacity;
+        will-change: transform, opacity; */
         
         /* 优化触摸响应 */
-        touch-action: pan-y;
+        /* touch-action: pan-y;
         -webkit-touch-callout: none;
         -webkit-user-select: none;
         user-select: none;
-    }
+    } */
 
-    .banner-text-overlay {
+    /* .banner-text-overlay { */
         /* 文字渲染优化 */
-        -webkit-font-smoothing: antialiased;
+        /* -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        text-rendering: optimizeLegibility;
+        text-rendering: optimizeLegibility; */
         
         /* 减少重排 */
-        contain: layout style;
-    }
+        /* contain: layout style;
+    } */
 
     /* 移动端图片优化 */
-    .banner-container img {
+    /* .banner-container img { */
         /* 图片渲染优化 */
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
+        /* image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges; */
         
         /* 防止图片拖拽 */
-        -webkit-user-drag: none;
+        /* -webkit-user-drag: none;
         -khtml-user-drag: none;
         -moz-user-drag: none;
         -o-user-drag: none;
-        user-drag: none;
+        user-drag: none; */
         
         /* 触摸优化 */
-        pointer-events: none;
-    }
+        /* pointer-events: none;
+    } */
 
     /* 移动端轮播指示器 */
-    .carousel-indicators {
+    /* .carousel-indicators {
         position: absolute;
         bottom: 20px;
         left: 50%;
@@ -1379,22 +1372,22 @@ body.no-banner-mode #toc-inner-wrapper {
         display: flex;
         gap: 8px;
         z-index: 10;
-    }
+    } */
 
-    .carousel-indicator {
+    /* .carousel-indicator {
         width: 8px;
         height: 8px;
         border-radius: 50%;
         background: rgba(255, 255, 255, 0.5);
         transition: all 0.3s ease;
         cursor: pointer;
-    }
+    } */
 
-    .carousel-indicator.active {
+    /* .carousel-indicator.active {
         background: rgba(255, 255, 255, 0.9);
         transform: scale(1.2);
-    }
-}
+    } */
+/* } */
 
 /* 当banner被禁用时的布局样式 */
 .no-banner-layout {
@@ -1413,7 +1406,7 @@ body.no-banner-mode #toc-inner-wrapper {
 }
 
 /* 平板设备Grid模式：使用单列布局，和手机端保持一致 */
-@media (min-width: 768px) and (max-width: 1279px) {
+/* @media (min-width: 768px) and (max-width: 1279px) {
     #main-grid[data-layout-mode="grid"] {
         grid-template-columns: 1fr !important;
         grid-template-rows: auto 1fr auto !important;
@@ -1423,7 +1416,7 @@ body.no-banner-mode #toc-inner-wrapper {
         grid-column: 1 / 2;
         grid-row: 1 / 2;
     }
-}
+} */
 
 /* 桌面设备Grid模式：使用双列布局 */
 @media (min-width: 1280px) {
@@ -1483,7 +1476,6 @@ body.no-banner-mode #toc-inner-wrapper {
     
     /* 主内容区域位置调整 - 确保在banner下面，但不影响非首页 */
     .main-content-layout:not(.mobile-main-no-banner) {
-        top: 60vh !important; /* 与banner高度对应 */
         min-height: calc(100vh - 60vh) !important;
     }
     
@@ -1621,8 +1613,8 @@ body.no-banner-mode #toc-inner-wrapper {
 /* 极小高度屏幕 (高度 ≤ 500px) */
 @media (max-height: 500px) {
     #banner-wrapper {
-        height: 85vh !important; /* 占用更多高度确保banner显示 */
-        min-height: 350px !important;
+        /* height: 85vh !important; 占用更多高度确保banner显示 */
+        /* min-height: 350px !important; */
     }
     
     .banner-text-overlay {
@@ -1653,8 +1645,8 @@ body.no-banner-mode #toc-inner-wrapper {
 /* 小高度屏幕 (高度 501px - 600px) */
 @media (min-height: 501px) and (max-height: 600px) {
     #banner-wrapper {
-        height: 80vh !important;
-        min-height: 400px !important;
+        /* height: 80vh !important; */
+        /* min-height: 400px !important; */
     }
     
     .banner-text-overlay {
@@ -1685,8 +1677,8 @@ body.no-banner-mode #toc-inner-wrapper {
 /* 中等高度屏幕 (高度 601px - 700px) */
 @media (min-height: 601px) and (max-height: 700px) {
     #banner-wrapper {
-        height: 75vh !important;
-        min-height: 450px !important;
+        /* height: 75vh !important; */
+        /* min-height: 450px !important; */
     }
     
     .banner-text-overlay {
@@ -1717,8 +1709,8 @@ body.no-banner-mode #toc-inner-wrapper {
 /* 横屏模式特殊处理 - 优先显示banner */
 @media (orientation: landscape) and (max-height: 500px) {
     #banner-wrapper {
-        height: 90vh !important; /* 横屏时占用更多高度 */
-        min-height: 300px !important;
+        /* height: 90vh !important; 横屏时占用更多高度 */
+        /* min-height: 300px !important; */
     }
     
     .banner-text-overlay {

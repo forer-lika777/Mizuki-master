@@ -9,7 +9,7 @@
 }
 
 /* 桌面端 - 亮色 */
-@media (min-width: 0px) {
+@media (min-width: 1280px) {
   #banner-wrapper ~ * #navbar[data-transparent-mode="semi"] > div,
   body:has(#banner-wrapper) #navbar[data-transparent-mode="semi"] > div {
     backdrop-filter: blur(20px);
@@ -212,7 +212,6 @@
   body:has(#banner-wrapper) #navbar[data-is-home="true"] #mobile-toc-panel,
   body:has(#banner-wrapper) #navbar[data-is-home="true"] #search-panel,
   body:has(#banner-wrapper) #navbar[data-is-home="true"] #display-setting {
-    /* backdrop-filter: blur(20px); */
     background: var(--card-bg);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   }
