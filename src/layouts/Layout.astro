@@ -1159,9 +1159,10 @@ function disableAnimation() {
 			// console.log("page:view");
 
 			// 确保页面滚动到顶部，特别是移动端banner关闭时
-			// window.scrollTo({
-			// 	top: 0,
-			// });
+			window.scrollTo({
+				top: 0,
+				behavior: "smooth",
+			});
 
 			// 同步主题状态 - 解决从首页进入文章页面时代码块渲染问题
 			const storedTheme = localStorage.getItem("theme") || DEFAULT_THEME;
