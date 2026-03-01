@@ -1,26 +1,50 @@
 [
 	{
 		"id": 1,
-		"title": "ひとり上手",
-		"artist": "Kaya",
-		"cover": "assets/music/cover/hitori.jpg",
-		"url": "assets/music/url/hitori.mp3",
+		"title": "どうして...",
+		"artist": "RD-Sounds feat.めらみぽっぷ",
+		"cover": "assets/music/cover/1.jpg",
+		"url": "assets/music/url/1.mp3",
 		"duration": 240
 	},
 	{
 		"id": 2,
-		"title": "眩耀夜行",
-		"artist": "スリーズブーケ",
-		"cover": "assets/music/cover/xryx.jpg",
-		"url": "assets/music/url/xryx.mp3",
+		"title": "紅魔 「Un-demystified Fantasy」",
+		"artist": "RD-Sounds feat.めらみぽっぷ",
+		"cover": "assets/music/cover/2.jpg",
+		"url": "assets/music/url/2.mp3",
 		"duration": 180
 	},
 	{
 		"id": 3,
-		"title": "春雷の頃",
-		"artist": "22/7",
-		"cover": "assets/music/cover/cl.jpg",
-		"url": "assets/music/url/cl.mp3",
+		"title": "心綺楼",
+		"artist": "RD-Sounds feat.めらみぽっぷ",
+		"cover": "assets/music/cover/3.jpg",
+		"url": "assets/music/url/3.mp3",
+		"duration": 200
+	},
+	{
+		"id": 4,
+		"title": "禁符「フォービドゥン・ゲーム」",
+		"artist": "RD-Sounds feat.nayuta",
+		"cover": "assets/music/cover/4.jpg",
+		"url": "assets/music/url/4.mp3",
+		"duration": 200
+	},
+	{
+		"id": 5,
+		"title": "竹ノ花",
+		"artist": "RD-Sounds feat.めらみぽっぷ",
+		"cover": "assets/music/cover/5.jpg",
+		"url": "assets/music/url/5.mp3",
+		"duration": 200
+	},
+	{
+		"id": 6,
+		"title": "永夜 「Imperishable Challengers」",
+		"artist": "RD-Sounds feat.めらみぽっぷ",
+		"cover": "assets/music/cover/6.jpg",
+		"url": "assets/music/url/6.mp3",
 		"duration": 200
 	}
 ]
