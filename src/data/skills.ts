@@ -161,8 +161,8 @@ export const skillsData: Skill[] = [
 			"A powerful design and prototyping tool for UI/UX design, supporting collaborative design workflows.",
 		icon: "logos:adobe-xd",
 		category: "tools",
-		level: "beginner",
-		experience: { years: 0, months: 1 },
+		level: "intermediate",
+		experience: { years: 1, months: 0 },
 		color: "#FF61F6",
 	},
 	{
