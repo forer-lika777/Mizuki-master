@@ -14,6 +14,8 @@ export const en: Translation = {
 	[Key.navAbout]: "About",
 	[Key.navOthers]: "Others",
 
+	[Key.backToArchive]: "Back to Archive",
+
 	[Key.tags]: "Tags",
 	[Key.categories]: "Categories",
 	[Key.recentPosts]: "Recent Posts",
