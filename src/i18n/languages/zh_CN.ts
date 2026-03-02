@@ -14,7 +14,7 @@ export const zh_CN: Translation = {
 	[Key.navAbout]: "关于",
 	[Key.navOthers]: "其他",
 
-    [Key.backToArchive]: "返回归档"
+        [Key.backToArchive]: "返回归档"
 
 	[Key.tags]: "标签",
 	[Key.categories]: "分类",
