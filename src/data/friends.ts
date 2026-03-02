@@ -59,6 +59,38 @@ export const friendsData: FriendItem[] = [
 		desc: "Rhythm is just a click away!",
 		siteurl: "https://osu.ppy.sh",
 		tags: ["Osu!", "Game", "Rhythm"],
+	},
+	{
+		id: 7,
+		title: "Let's Encrypt",
+		imgurl: "/assets/icon/lets-encrypt-icon.png",
+		desc: "A free, automated, and open Certificate Authority",
+		siteurl: "https://letsencrypt.org",
+		tags: ["Security", "Certificate Authority"],
+	},
+	{
+		id: 8,
+		title: "Certify The Web",
+		imgurl: "/assets/icon/certify-the-web-icon.png",
+		desc: "A Windows ACME client for Let's Encrypt and other ACME certificate authorities",
+		siteurl: "https://certifytheweb.com",
+		tags: ["Security", "ACME Client"],
+	},
+	{
+		id: 9,
+		title: "Visual Studio Code",
+		imgurl: "/assets/icon/vscode-icon.png",
+		desc: "Code editing. Redefined.",
+		siteurl: "https://code.visualstudio.com",
+		tags: ["Editor", "Microsoft"],
+	},
+	{
+		id: 10,
+		title: "Visual Studio",
+		imgurl: "/assets/icon/visual-studio-26-icon.webp",
+		desc: "The best IDE for .NET and C++ development",
+		siteurl: "https://visualstudio.microsoft.com",
+		tags: ["IDE", "Microsoft"],
 	}
 ];
 
