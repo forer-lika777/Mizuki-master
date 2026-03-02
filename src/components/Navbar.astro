@@ -45,11 +45,11 @@ const iconSrc = rawIcon.match(/^(http|https|\/\/)/) ? rawIcon : url(rawIcon);
     <!-- <div class="absolute h-8 left-0 right-0 -top-8 bg-[var(--card-bg)] transition"></div> used for onload animation -->
     <div class:list={[className, "!overflow-visible h-[4.5rem] mx-auto flex items-center justify-between px-4"]} style="width: 100vw">
         <div class="flex items-center gap-1 pl-2">
-            <a href="javascript:history.back()" class="btn-plain scale-animation rounded-lg h-[3rem] w-[3rem] active:scale-95">
+            <!-- <a href="javascript:history.back()" class="btn-plain scale-animation rounded-lg h-[3rem] w-[3rem] active:scale-95">
                 <div class="flex flex-row items-center">
                     <Icon name="material-symbols:arrow-back-rounded" size="24"/>
                 </div>
-            </a>
+            </a> -->
             <a href={url('/')} class="btn-plain scale-animation rounded-lg h-[3.5rem] px-5 font-bold active:scale-95 shrink-0 transition-all duration-300">
                 <div class="flex flex-row items-center text-md">
                     {/* 使用navbarTitle配置或默认配置 */}
