@@ -139,6 +139,18 @@ export const skillsData: Skill[] = [
 		projects: ["embedded-system", "kernel-module"],
 		color: "#A8B9CC",
 	},
+	{
+		id: "ffmpeg",
+		name: "FFmpeg",
+		description:
+			"A powerful multimedia framework for processing video and audio, widely used in media applications.",
+		icon: "logos:ffmpeg",
+		category: "backend",
+		level: "intermediate",
+		experience: { years: 0, months: 4 },
+		projects: ["video-processing", ],
+		color: "#B0171F",
+	},
 
 	// Database Skills
 
