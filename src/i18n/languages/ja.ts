@@ -14,6 +14,8 @@ export const ja: Translation = {
 	[Key.navAbout]: "情報",
 	[Key.navOthers]: "その他",
 
+        [Key.backToArchive]: "Back to archive",
+
 	[Key.tags]: "タグ",
 	[Key.categories]: "カテゴリー",
 	[Key.recentPosts]: "最近の投稿",
