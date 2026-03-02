@@ -14,7 +14,7 @@ export const zh_TW: Translation = {
 	[Key.navAbout]: "關於",
 	[Key.navOthers]: "其他",
 
-        [Key.backToArchive]: "Back to archive"，
+        [Key.backToArchive]: "Back to archive",
 
 	[Key.tags]: "標籤",
 	[Key.categories]: "分類",
