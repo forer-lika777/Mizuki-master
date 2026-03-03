@@ -30,9 +30,6 @@ git config --global https.proxy "http://127.0.0.1:7897"
 socks协议配置：
 ```bash
 git config --global http.proxy "socks5://127.0.0.1:7897"
-```
- 
-```bash
 git config --global https.proxy "socks5://127.0.0.1:7897"
 ```
 
