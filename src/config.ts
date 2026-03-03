@@ -32,7 +32,7 @@ export const siteConfig: SiteConfig = {
 	lang: SITE_LANG,
 
 	themeColor: {
-		hue: 60, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
+		hue: 345, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
 		fixed: false, // 对访问者隐藏主题色选择器
 	},
 
@@ -118,9 +118,7 @@ export const siteConfig: SiteConfig = {
 	banner: {
 		// 支持单张图片或图片数组，当数组长度 > 1 时自动启用轮播
 		src: {
-			desktop: [
-				"/assets/desktop-banner/1.webp",
-			], // 桌面横幅图片
+			desktop: ["/assets/desktop-banner/1.webp"], // 桌面横幅图片
 			mobile: [
 				"/assets/mobile-banner/1.webp",
 				"/assets/mobile-banner/2.webp",
@@ -217,7 +215,9 @@ export const siteConfig: SiteConfig = {
 			// 中日韩字体 - 作为回退字体
 			fontFamily: "SourceHanSans-Normal",
 			fontWeight: "400",
-			localFonts: ["sourcehansans_subset_and_comfortaa_merged_normal.ttf"],
+			localFonts: [
+				"sourcehansans_subset_and_comfortaa_merged_normal.ttf",
+			],
 			enableCompress: false, // 启用字体子集优化，减少字体文件大小
 		},
 	},
@@ -225,9 +225,7 @@ export const siteConfig: SiteConfig = {
 };
 export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 	src: {
-		desktop: [
-			"/assets/desktop-banner/1.webp",
-		], // 桌面横幅图片
+		desktop: ["/assets/desktop-banner/1.webp"], // 桌面横幅图片
 		mobile: [
 			"/assets/mobile-banner/1.webp",
 			"/assets/mobile-banner/2.webp",
