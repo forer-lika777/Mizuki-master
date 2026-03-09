@@ -112,7 +112,7 @@ export const siteConfig: SiteConfig = {
 		// "mobile" = 仅在移动端显示
 		// "desktop" = 仅在桌面端显示
 		// "both" = 在所有设备上显示
-		showModeSwitchOnMobile: "desktop",
+		showModeSwitchOnMobile: "both",
 	},
 
 	banner: {
@@ -409,7 +409,7 @@ export const expressiveCodeConfig: ExpressiveCodeConfig = {
 	// 请选择深色主题，因为此博客主题目前仅支持深色背景
 	theme: "github-dark",
 	// 是否在主题切换时隐藏代码块以避免卡顿问题
-	hideDuringThemeTransition: true,
+	hideDuringThemeTransition: false,
 };
 
 export const commentConfig: CommentConfig = {
@@ -594,7 +594,7 @@ export const sakuraConfig: SakuraConfig = {
 
 // Pio 看板娘配置
 export const pioConfig: import("./types/config").PioConfig = {
-	enable: true, // 启用看板娘
+	enable: false, // 启用看板娘
 	models: ["/pio/models/pio/model.json"], // 默认模型路径
 	position: "left", // 模型位置
 	width: 280, // 默认宽度
