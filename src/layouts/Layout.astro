@@ -461,20 +461,6 @@ if (siteConfig.font) {
 				transform: translate3d(85px, 0, 0);
 			}
 		} */
-
-		#nprogress .bar{
-			background: var(--primary) !important;
-		}
-
-		#nprogress .peg {
-			box-shadow: 0 0 10px var(--primary), 0 0 5px var(--primary) !important;
-		}
-
-		#nprogress .spinner-icon {
-			border-top-color: var(--primary) !important;
-			border-left-color: var(--primary) !important;
-		}
-
 	}
 </style>
 
@@ -491,9 +477,6 @@ if (siteConfig.font) {
 		DEFAULT_THEME,
 	} from "../constants/constants";
 
-	import NProgress from "nprogress";
-	import 'nprogress/nprogress.css';
-
 	const BANNER_HEIGHT = 35;
 	const BANNER_HEIGHT_EXTEND = 30;
 	const BANNER_HEIGHT_HOME = BANNER_HEIGHT + BANNER_HEIGHT_EXTEND;
@@ -507,9 +490,6 @@ if (siteConfig.font) {
 	// @ts-ignore
 	const setTimeout = (callback: any, delay: any) =>
 		window.setTimeout(callback, delay);
-
-	NProgress.configure({ easing: 'ease', speed: 200, trickleSpeed: 200 });
-	NProgress.start();
 	
 	
 	/* Preload fonts */
@@ -1022,7 +1002,6 @@ function disableAnimation() {
 		});
 
 		window.swup.hooks.on("content:replace", () => {
-			NProgress.done();
 			// 初始化新页面的图片、公式、滚动条和TOC
 			initFancybox();
 			checkKatex();
@@ -1072,7 +1051,6 @@ function disableAnimation() {
 
 		window.swup.hooks.on("visit:start",
 			(visit: { to: { url: string } }) => {
-				NProgress.set(0.6);
 				// 清理上一页的 Fancybox
 				cleanupFancybox();
 				// console.log("visit:start");
@@ -1378,7 +1356,6 @@ function disableAnimation() {
 	if (document.readyState === "loading") {
 		document.addEventListener("DOMContentLoaded", async () => {
 			showBanner();
-			NProgress.done();
 			// 初始化面板管理器
 			try {
 				await import("../utils/panel-manager.js");
@@ -1389,7 +1366,6 @@ function disableAnimation() {
 		});
 	} else {
 		showBanner();
-		NProgress.done();
 		// 页面已经加载完成，立即初始化面板管理器
 		(async () => {
 			try {
