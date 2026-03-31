@@ -1,0 +1,3 @@
+[submodule "src/content/src/content/posts"]
+	path = src/content/src/content/posts
+	url = git@github.com:forer-lika777/posts.git
