@@ -188,6 +188,17 @@ export const skillsData: Skill[] = [
 		experience: { years: 3, months: 0 },
 		color: "#007ACC",
 	},
+ {
+		id: "visual-studio",
+		name: "Visual Studio",
+		description:
+			"Visual Studio is a Microsoft IDE for building apps across multiple languages and platforms.",
+		icon: "logos:visual-studio",
+		category: "tools",
+		level: "intermediate",
+		experience: { years: 3, months: 0 },
+		color: "#B681F2",
+	},
 	{
 		id: "intellij",
 		name: "IntelliJ IDEA",
