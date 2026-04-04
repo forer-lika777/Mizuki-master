@@ -36,7 +36,6 @@ export default defineConfig({
 	trailingSlash: "always",
 
 	output: "static",
-	outDir: "./dist/files",
 
 	integrations: [
 		umami({
