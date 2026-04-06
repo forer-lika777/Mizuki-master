@@ -208,7 +208,9 @@ export const siteConfig: SiteConfig = {
 			// 指定为英文字体则无论字体包含多大范围，都只会保留 ASCII 字符子集
 			fontFamily: "Comfortaa-Regular",
 			fontWeight: "400",
-			localFonts: ["Comfortaa-Regular.ttf"],
+			localFonts: [
+				"sourcehansans_subset_and_comfortaa_merged_normal.ttf",
+			],
 			enableCompress: false, // 启用字体子集优化，减少字体文件大小
 		},
 		cjkFont: {
