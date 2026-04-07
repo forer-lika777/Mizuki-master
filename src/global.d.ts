@@ -19,6 +19,7 @@ declare global {
 			}>;
 		};
 
+		tocInternalNavigation?: boolean;
 		mobileTOCInit?: () => void;
 		initSemifullScrollDetection?: () => void;
 		iconifyLoaded?: boolean;
