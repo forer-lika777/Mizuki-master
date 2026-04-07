@@ -697,21 +697,22 @@ onDestroy(() => {
                     <Icon icon="material-symbols:close" class="text-lg" />
                 </button>
             </div>
-            <div class="playlist-content overflow-y-auto max-h-80 hide-scrollbar">
+            <div class="playlist-content overflow-y-auto max-h-80"
+                 style="scrollbar-width: thin">
                 {#each playlist as song, index}
                     <div class="playlist-item flex items-center gap-3 p-3 hover:bg-[var(--btn-plain-bg-hover)] cursor-pointer transition-colors"
-                         class:bg-[var(--btn-plain-bg)]={index === currentIndex}
-                         class:text-[var(--primary)]={index === currentIndex}
-                         on:click={() => playSong(index)}
-                         on:keydown={(e) => {
-                             if (e.key === 'Enter' || e.key === ' ') {
-                                 e.preventDefault();
-								 playSong(index);
-                             }
-                         }}
-                         role="button"
-                         tabindex="0"
-                         aria-label="播放 {song.title} - {song.artist}">
+                        class:bg-[var(--btn-plain-bg)]={index === currentIndex}
+                        class:text-[var(--primary)]={index === currentIndex}
+                        on:click={() => playSong(index)}
+                        on:keydown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                playSong(index);
+                            }
+                        }}
+                        role="button"
+                        tabindex="0"
+                        aria-label="播放 {song.title} - {song.artist}">
                         <div class="w-6 h-6 flex items-center justify-center">
                             {#if index === currentIndex && isPlaying}
                                 <Icon icon="material-symbols:graphic-eq" class="text-[var(--primary)] animate-pulse" />
