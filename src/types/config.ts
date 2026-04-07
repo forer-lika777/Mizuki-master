@@ -344,6 +344,7 @@ export type WidgetComponentType =
 	| "categories"
 	| "tags"
 	| "toc"
+	| "cardtoc"
 	| "music-player"
 	| "pio" // 添加 pio 组件类型
 	| "site-stats" // 站点统计组件
