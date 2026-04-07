@@ -9,6 +9,7 @@ import Profile from "./Profile.astro";
 import SiteStats from "./SiteStats.astro";
 import Tags from "./Tags.astro";
 import TOC from "./TOC.astro";
+import CardTOC from "./CardTOC.astro";
 
 interface Props {
 	class?: string;
@@ -31,6 +32,7 @@ const componentMap = {
 	categories: Categories,
 	tags: Tags,
 	toc: TOC,
+	cardtoc: CardTOC,
 	"music-player": MusicPlayer,
 	"site-stats": SiteStats,
 	calendar: Calendar,
@@ -65,7 +67,10 @@ function renderComponent(component: any, index: number, _components: any[]) {
 			<div class="flex flex-col w-full gap-4 md:hidden">
 				{mobileTopComponents.map((component, index) => {
 					const renderData = renderComponent(component, index, mobileTopComponents);
-					if (!renderData) return null;
+					if (!renderData) {
+						console.warn(`Component type "${component.type}" not found in componentMap.`);
+						return null;
+					}
 					
 					const { Component, props } = renderData;
 					return <Component {...props} />;
