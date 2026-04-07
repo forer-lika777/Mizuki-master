@@ -26,7 +26,7 @@ let isPlaying = false;
 // 播放器是否展开，默认为 false
 let isExpanded = false;
 // 播放器是否隐藏，默认为 false
-let isHidden = false;
+let isHidden = true;
 // 是否显示播放列表，默认为 false
 let showPlaylist = false;
 // 当前播放时间，默认为 0
@@ -470,11 +470,11 @@ onDestroy(() => {
          class:opacity-0={!isHidden}
          class:scale-95={!isHidden}
          class:pointer-events-none={!isHidden}
-         on:click={toggleHidden}
+         on:click={toggleExpanded}
          on:keydown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-				toggleHidden();
+				toggleExpanded();
             }
          }}
          role="button"
