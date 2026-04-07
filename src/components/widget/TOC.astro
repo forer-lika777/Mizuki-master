@@ -299,26 +299,10 @@ class TableOfContents extends HTMLElement {
         // 获取配置信息
         const siteConfig = (window as any).siteConfig || {};
         const maxLevel = siteConfig.toc?.depth || 3;
-        const useJapaneseBadge = siteConfig.toc?.useJapaneseBadge || false;
         
         // 添加调试信息
-        console.log('TOC Config in regenerateTOC:', { siteConfig: siteConfig.toc, maxLevel, useJapaneseBadge });
+        // console.log('TOC Config in regenerateTOC:', { siteConfig: siteConfig.toc, maxLevel, useJapaneseBadge });
         
-        // 日语片假名字符集
-        const japaneseKatakana = [
-            "ア", "イ", "ウ", "エ", "オ",
-            "カ", "キ", "ク", "ケ", "コ",
-            "サ", "シ", "ス", "セ", "ソ",
-            "タ", "チ", "ツ", "テ", "ト",
-            "ナ", "ニ", "ヌ", "ネ", "ノ",
-            "ハ", "ヒ", "フ", "ヘ", "ホ",
-            "マ", "ミ", "ム", "メ", "モ",
-            "ヤ", "ユ", "ヨ",
-            "ラ", "リ", "ル", "レ", "ロ",
-            "ワ", "ヲ", "ン"
-        ];
-        
-        let heading1Count = 1;
         const tocHTML = headings
             .filter(heading => heading.depth < minDepth + maxLevel)
             .map(heading => {
@@ -326,14 +310,7 @@ class TableOfContents extends HTMLElement {
                     heading.depth === minDepth + 1 ? 'ml-4' : 'ml-8';
                 
                 let badgeContent = '';
-                if (heading.depth === minDepth) {
-                    if (useJapaneseBadge && heading1Count - 1 < japaneseKatakana.length) {
-                        badgeContent = japaneseKatakana[heading1Count - 1];
-                    } else {
-                        badgeContent = heading1Count.toString();
-                    }
-                    heading1Count++;
-                } else if (heading.depth === minDepth + 1) {
+                if (heading.depth === minDepth + 1) {
                     badgeContent = '<div class="transition w-2 h-2 rounded-[0.1875rem] bg-[var(--toc-badge-bg)]"></div>';
                 } else {
                     badgeContent = '<div class="transition w-1.5 h-1.5 rounded-sm bg-black/5 dark:bg-white/10"></div>';
