@@ -7,7 +7,6 @@ import Navbar from "@components/Navbar.astro";
 import SideBar from "@components/widget/SideBar.astro";
 import type { MarkdownHeading } from "astro";
 import { Icon } from "astro-icon/components";
-import CustomScrollbar from "@components/CustomScrollbar.astro";
 import FullscreenWallpaper from "../components/misc/FullscreenWallpaper.astro";
 import IconifyLoader from "../components/misc/IconifyLoader.astro";
 import ImageWrapper from "../components/misc/ImageWrapper.astro";
@@ -377,11 +376,11 @@ const transparentClass = "";
 				body.classList.add('enable-banner');
 				// navbar 恢复原始透明模式（从 config 读取）
 				if (navbar) {
-					navbar.removeAttribute('data-dynamic-transparent');
+					// navbar.removeAttribute('data-dynamic-transparent');
 					// 恢复 config 中设置的 data-transparent-mode
-					navbar.setAttribute('data-transparent-mode', navbarTransparentMode);
+					// navbar.setAttribute('data-transparent-mode', navbarTransparentMode);
 					// 如果是 semifull 模式，重新初始化滚动检测
-					if (navbarTransparentMode === 'semifull' && window.initSemifullScrollDetection) {
+					if (window.initSemifullScrollDetection) {
 						window.initSemifullScrollDetection();
 					}
 				}
@@ -413,11 +412,11 @@ const transparentClass = "";
 				body.classList.add('wallpaper-transparent');
 				body.classList.add('no-banner-mode');
 				// navbar 强制设置为 semi 透明模式（忽略 config 配置）
-				if (navbar) {
-					navbar.setAttribute('data-dynamic-transparent', 'semi');
-					// 强制移除 config 中的 data-transparent-mode 影响
-					navbar.removeAttribute('data-transparent-mode');
-				}
+				// if (navbar) {
+				// 	// navbar.setAttribute('data-dynamic-transparent', 'semi');
+				// 	// 强制移除 config 中的 data-transparent-mode 影响
+				// 	// navbar.removeAttribute('data-transparent-mode');
+				// }
 				// 强制重排以确保CSS变量正确更新
 				forceReflow();
 				break;
@@ -446,11 +445,11 @@ const transparentClass = "";
 				// 再添加no-banner-mode类
 				body.classList.add('no-banner-mode');
 				// navbar 强制设置为不透明（忽略 config 配置）
-				if (navbar) {
-					navbar.setAttribute('data-dynamic-transparent', 'none');
-					// 强制移除 config 中的 data-transparent-mode 影响
-					navbar.removeAttribute('data-transparent-mode');
-				}
+				// if (navbar) {
+				// 	// navbar.setAttribute('data-dynamic-transparent', 'none');
+				// 	// 强制移除 config 中的 data-transparent-mode 影响
+				// 	// navbar.removeAttribute('data-transparent-mode');
+				// }
 				// 强制重排以确保CSS变量正确更新
 				forceReflow();
 				break;
