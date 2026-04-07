@@ -826,7 +826,7 @@ const transparentClass = "";
                     )}
                 </div>
 
-                <main id="swup-container" class={`${mainContentClass} transition-main`}>
+                <main id="swup-container" class={`${mainContentClass} transition-main min-h-screen`}>
                     <div id="content-wrapper" class="onload-animation transition-leaving">
                         <!-- the overflow-hidden here prevent long text break the layout-->
                         <!-- make id different from windows.swup global property -->
@@ -994,7 +994,7 @@ body.no-banner-mode #toc-inner-wrapper {
     
     /* 横幅文本覆盖层优化 */
     .banner-text-overlay {
-        align-items: start !important; /* 垂直居中 */
+        align-items: center !important; /* 垂直居中 */
         justify-content: center !important; /* 水平居中 */
         padding: 1.5rem !important;
         text-align: center !important; /* 文字居中对齐 */
@@ -1435,8 +1435,8 @@ body.no-banner-mode #toc-inner-wrapper {
     }
 
     .banner-text-overlay {
-        padding: 1rem 1.5rem;
-        align-items: start !important; /* 垂直居中 */
+        /* padding: 1rem 1.5rem; */
+        /* align-items: start !important; 垂直居中 */
         justify-content: center !important; /* 水平居中 */
         text-align: center !important; /* 文字居中对齐 */;
     }
@@ -1563,13 +1563,13 @@ body.no-banner-mode #toc-inner-wrapper {
 /* 极小高度屏幕 (高度 ≤ 500px) */
 @media (max-height: 500px) {
     #banner-wrapper {
-        /* height: 85vh !important; 占用更多高度确保banner显示 */
-        /* min-height: 350px !important; */
+        height: 85vh !important; /*  占用更多高度确保banner显示 */
+        min-height: 350px !important;
     }
     
     .banner-text-overlay {
         padding: 1rem !important;
-        align-items: start !important; /* 垂直居中 */
+        align-items: center !important; /* 垂直居中 */
         justify-content: center !important; /* 水平居中 */
         text-align: center !important; /* 文字居中对齐 */
     }
@@ -1665,7 +1665,7 @@ body.no-banner-mode #toc-inner-wrapper {
     
     .banner-text-overlay {
         padding: 8rem 2rem !important;
-        align-items: start !important; /* 垂直居中 */
+        align-items: center !important; /* 垂直居中 */
         justify-content: center !important; /* 水平居中 */
         text-align: center !important; /* 文字居中对齐 */
     }
