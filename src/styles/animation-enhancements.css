@@ -77,18 +77,18 @@ html.is-entering .transition-main {
 }
 
 /* 导航栏动画增强 */
-.navbar-animate {
+/* .navbar-animate {
   opacity: 0;
   transform: translateY(-1rem);
   transition:
     opacity 280ms cubic-bezier(0.4, 0, 0.2, 1),
     transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+} */
 
-.navbar-animate.animate {
+/* .navbar-animate.animate {
   opacity: 1;
   transform: translateY(0);
-}
+} */
 
 /* 页脚动画 */
 .footer-animate {

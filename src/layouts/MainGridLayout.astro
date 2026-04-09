@@ -7,7 +7,6 @@ import Navbar from "@components/Navbar.astro";
 import SideBar from "@components/widget/SideBar.astro";
 import type { MarkdownHeading } from "astro";
 import { Icon } from "astro-icon/components";
-import CustomScrollbar from "@components/CustomScrollbar.astro";
 import FullscreenWallpaper from "../components/misc/FullscreenWallpaper.astro";
 import IconifyLoader from "../components/misc/IconifyLoader.astro";
 import ImageWrapper from "../components/misc/ImageWrapper.astro";
@@ -377,11 +376,11 @@ const transparentClass = "";
 				body.classList.add('enable-banner');
 				// navbar 恢复原始透明模式（从 config 读取）
 				if (navbar) {
-					navbar.removeAttribute('data-dynamic-transparent');
+					// navbar.removeAttribute('data-dynamic-transparent');
 					// 恢复 config 中设置的 data-transparent-mode
-					navbar.setAttribute('data-transparent-mode', navbarTransparentMode);
+					// navbar.setAttribute('data-transparent-mode', navbarTransparentMode);
 					// 如果是 semifull 模式，重新初始化滚动检测
-					if (navbarTransparentMode === 'semifull' && window.initSemifullScrollDetection) {
+					if (window.initSemifullScrollDetection) {
 						window.initSemifullScrollDetection();
 					}
 				}
@@ -413,11 +412,11 @@ const transparentClass = "";
 				body.classList.add('wallpaper-transparent');
 				body.classList.add('no-banner-mode');
 				// navbar 强制设置为 semi 透明模式（忽略 config 配置）
-				if (navbar) {
-					navbar.setAttribute('data-dynamic-transparent', 'semi');
-					// 强制移除 config 中的 data-transparent-mode 影响
-					navbar.removeAttribute('data-transparent-mode');
-				}
+				// if (navbar) {
+				// 	// navbar.setAttribute('data-dynamic-transparent', 'semi');
+				// 	// 强制移除 config 中的 data-transparent-mode 影响
+				// 	// navbar.removeAttribute('data-transparent-mode');
+				// }
 				// 强制重排以确保CSS变量正确更新
 				forceReflow();
 				break;
@@ -446,11 +445,11 @@ const transparentClass = "";
 				// 再添加no-banner-mode类
 				body.classList.add('no-banner-mode');
 				// navbar 强制设置为不透明（忽略 config 配置）
-				if (navbar) {
-					navbar.setAttribute('data-dynamic-transparent', 'none');
-					// 强制移除 config 中的 data-transparent-mode 影响
-					navbar.removeAttribute('data-transparent-mode');
-				}
+				// if (navbar) {
+				// 	// navbar.setAttribute('data-dynamic-transparent', 'none');
+				// 	// 强制移除 config 中的 data-transparent-mode 影响
+				// 	// navbar.removeAttribute('data-transparent-mode');
+				// }
 				// 强制重排以确保CSS变量正确更新
 				forceReflow();
 				break;
@@ -595,8 +594,6 @@ const transparentClass = "";
             <Navbar></Navbar>
         </div>
     </div>
-
-    <div></div>
 
     <!-- Banner - 始终渲染，通过 JS 控制显示隐藏 -->
     <div id="banner-wrapper" class={`col-start-1 row-start-1 absolute z-10 w-full overflow-hidden ${mobileNonHomeBannerClass}`} style={``}>
@@ -829,7 +826,7 @@ const transparentClass = "";
                     )}
                 </div>
 
-                <main id="swup-container" class={`${mainContentClass} transition-main`}>
+                <main id="swup-container" class={`${mainContentClass} transition-main min-h-screen`}>
                     <div id="content-wrapper" class="onload-animation transition-leaving">
                         <!-- the overflow-hidden here prevent long text break the layout-->
                         <!-- make id different from windows.swup global property -->
@@ -997,7 +994,7 @@ body.no-banner-mode #toc-inner-wrapper {
     
     /* 横幅文本覆盖层优化 */
     .banner-text-overlay {
-        align-items: start !important; /* 垂直居中 */
+        align-items: center !important; /* 垂直居中 */
         justify-content: center !important; /* 水平居中 */
         padding: 1.5rem !important;
         text-align: center !important; /* 文字居中对齐 */
@@ -1438,8 +1435,8 @@ body.no-banner-mode #toc-inner-wrapper {
     }
 
     .banner-text-overlay {
-        padding: 1rem 1.5rem;
-        align-items: start !important; /* 垂直居中 */
+        /* padding: 1rem 1.5rem; */
+        /* align-items: start !important; 垂直居中 */
         justify-content: center !important; /* 水平居中 */
         text-align: center !important; /* 文字居中对齐 */;
     }
@@ -1566,13 +1563,13 @@ body.no-banner-mode #toc-inner-wrapper {
 /* 极小高度屏幕 (高度 ≤ 500px) */
 @media (max-height: 500px) {
     #banner-wrapper {
-        /* height: 85vh !important; 占用更多高度确保banner显示 */
-        /* min-height: 350px !important; */
+        height: 85vh !important; /*  占用更多高度确保banner显示 */
+        min-height: 350px !important;
     }
     
     .banner-text-overlay {
         padding: 1rem !important;
-        align-items: start !important; /* 垂直居中 */
+        align-items: center !important; /* 垂直居中 */
         justify-content: center !important; /* 水平居中 */
         text-align: center !important; /* 文字居中对齐 */
     }
@@ -1668,7 +1665,7 @@ body.no-banner-mode #toc-inner-wrapper {
     
     .banner-text-overlay {
         padding: 8rem 2rem !important;
-        align-items: start !important; /* 垂直居中 */
+        align-items: center !important; /* 垂直居中 */
         justify-content: center !important; /* 水平居中 */
         text-align: center !important; /* 文字居中对齐 */
     }
