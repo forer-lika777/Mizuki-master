@@ -981,7 +981,7 @@ body.no-banner-mode #toc-inner-wrapper {
 @media (max-width: 767px) {
     /* Banner wrapper 高度优化 - 优先保持banner显示 */
     body.enable-banner #banner-wrapper:not(.mobile-hide-banner) {
-        height: 75vh !important;
+        height: 76dvh !important;
         min-height: 500px;
         max-height: none; /* 移除最大高度限制 */
         top: 0 !important; 
@@ -989,8 +989,8 @@ body.no-banner-mode #toc-inner-wrapper {
     
     /* 主内容区域位置调整 - 确保在banner下面 */
     body.enable-banner .main-content-layout:not(.mobile-main-no-banner) {
-        top: 10vh !important;
-        min-height: calc(100vh - 75vh) !important;
+        top: 10dvh !important;
+        min-height: calc(100dvh - 73dvh) !important;
     }
     
     /* 横幅文本覆盖层优化 */
@@ -1025,7 +1025,7 @@ body.no-banner-mode #toc-inner-wrapper {
     
     /* 波浪效果高度调整 */
     .waves {
-        height: 10vh !important;
+        height: 10dvh !important;
         min-height: 70px !important;
         max-height: 100px !important;
     }
@@ -1035,15 +1035,15 @@ body.no-banner-mode #toc-inner-wrapper {
 @media (min-width: 768px) and (max-width: 1279px) {
     /* Banner wrapper 高度优化 */
     body.enable-banner #banner-wrapper:not(.mobile-hide-banner) {
-        height: 70vh !important;
+        height: 70.5dvh !important;
         /* min-height: 400px; */
         top: 0 !important;
     }
     
     /* 主内容区域位置调整 - 确保在banner下面 */
     body.enable-banner .main-content-layout:not(.mobile-main-no-banner) {
-        top: 6vh !important;
-        min-height: calc(100vh - 70vh) !important;
+        top: 6dvh !important;
+        min-height: calc(100dvh - 70dvh) !important;
     }
     
     /* 横幅文本覆盖层优化 */
@@ -1078,7 +1078,7 @@ body.no-banner-mode #toc-inner-wrapper {
     
     /* 波浪效果高度调整 */
     .waves {
-        height: 12vh !important;
+        height: 12dvh !important;
         min-height: 80px !important;
         max-height: 120px !important;
     }
@@ -1152,7 +1152,7 @@ body.no-banner-mode #toc-inner-wrapper {
     
     /* 波浪效果恢复默认 */
     .waves {
-        height: 15vh !important;
+        height: 15dvh !important;
         min-height: 80px !important;
         max-height: 150px !important;
     }
@@ -1422,16 +1422,16 @@ body.no-banner-mode #toc-inner-wrapper {
 @media (max-width: 1279px) and (orientation: landscape) {
     #banner-wrapper:not(.mobile-hide-banner) {
         top: 0 !important; /* 横屏模式从顶部开始，避免被导航栏覆盖 */
-        height: 60vh !important;
+        height: 60dvh !important;
     }
     
     /* 主内容区域位置调整 - 确保在banner下面，但不影响非首页 */
     .main-content-layout:not(.mobile-main-no-banner) {
-        min-height: calc(100vh - 60vh) !important;
+        min-height: calc(100dvh - 60dvh) !important;
     }
     
     .banner-container {
-        height: 60vh;
+        height: 60dvh;
         min-height: 300px;
     }
 
@@ -1564,7 +1564,7 @@ body.no-banner-mode #toc-inner-wrapper {
 /* 极小高度屏幕 (高度 ≤ 500px) */
 @media (max-height: 500px) {
     #banner-wrapper {
-        height: 85vh !important; /*  占用更多高度确保banner显示 */
+        height: 85dvh !important; /*  占用更多高度确保banner显示 */
         min-height: 350px !important;
     }
     
