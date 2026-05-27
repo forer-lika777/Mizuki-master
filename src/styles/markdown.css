@@ -3,6 +3,28 @@
     @apply text-3xl;
   }
 
+  h1 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  h2 {
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+  }
+
+  h3 {
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+  }
+
+  h4,
+  h5,
+  h6 {
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+  }
+
   :is(h1, h2, h3, h4, h5, h6) {
     .anchor {
       @apply transition -m-0.5 ms-[0.2ch] p-0.5 select-none opacity-0 no-underline;
@@ -15,6 +37,27 @@
     &:hover .anchor {
       @apply opacity-100;
     }
+  }
+
+  /* 正文段落 */
+  p {
+    margin-top: 0.4em;
+    line-height: 1.8;
+    margin-bottom: 0.6em;
+  }
+
+  /* 列表项 */
+  li {
+    margin-top: 0em;
+    line-height: 1.8;
+    margin-bottom: 0em;
+  }
+
+  /* 分割线 */
+  hr {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-top-width: 1.5px;
   }
 
   /* --- 链接 --- */
@@ -110,6 +153,8 @@
 
   table {
     @apply w-full border-separate m-0 bg-[var(--card-bg)];
+    margin-top: 1em;
+    margin-bottom: 1em;
     border-spacing: 0;
 
     border: 1px solid var(--line-divider);
@@ -127,7 +172,7 @@
   }
 
   th {
-    background-color: var(--btn-regular-bg);
+    background-color: var(--table-header);
     color: var(--btn-content);
     font-weight: 600;
     text-align: left;
@@ -142,7 +187,7 @@
   }
 
   tr:nth-child(even) {
-    background-color: var(--codeblock-bg);
+    background-color: var(--table-row-even);
   }
   tr:hover td {
     background-color: var(--btn-plain-bg-hover);
