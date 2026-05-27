@@ -461,7 +461,7 @@ onDestroy(() => {
 </div>
 {/if}
 
-<div class="music-player fixed bottom-4 right-4 z-50 transition-all duration-300 ease-in-out"
+<div id="music-player-button" class="music-player fixed bottom-4 right-4 z-50 transition-all duration-300 ease-in-out"
      class:expanded={isExpanded}
      class:hidden-mode={isHidden}>
 

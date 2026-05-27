@@ -718,3 +718,80 @@ html {
 :root:not(.dark) .custom-md spoiler {
   --_spoiler-mask: color-mix(in oklch, var(--primary) 55%, white 45%);
 }
+
+@media print {
+  @page {
+    size: A4;
+    margin: 1cm !important;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    /* color: #000000 !important; */
+    /* width: 100% !important; */
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #top-row,
+  #banner-wrapper,
+  #post-metadata,
+  #post-statistics-info,
+  #back-to-archieve-button,
+  #music-player-button,
+  #share-component,
+  #license-component,
+  #last-edit-time-component,
+  #next-and-previous-article-button-component,
+  #sidebar,
+  #right-sidebar,
+  #back-to-top-wrapper,
+  .footer {
+    display: none !important;
+  }
+
+  #main-grid {
+    --tw-translate-y: 0 !important;
+  }
+
+  main,
+  #post-main-title,
+  #post-container {
+    display: block !important;
+    /* width: 100% !important; */
+    /* max-width: 100% !important; */
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  pre,
+  .astro-code,
+  .code-block {
+    display: block !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+
+    /* background-color: #f8fafc !important; */
+    /* border: 1px solid #e2e8f0 !important; */
+    overflow: visible !important;
+    white-space: pre-wrap !important; /* 长代码自动换行，防止超出纸张右侧 */
+  }
+
+  blockquote,
+  img {
+    page-break-inside: avoid !important;
+    /* break-inside: avoid !important; */
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    /* color: #1a202c !important; */
+  }
+}
