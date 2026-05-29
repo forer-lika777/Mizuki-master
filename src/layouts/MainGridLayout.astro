@@ -981,16 +981,16 @@ body.no-banner-mode #toc-inner-wrapper {
 @media (max-width: 767px) {
     /* Banner wrapper 高度优化 - 优先保持banner显示 */
     body.enable-banner #banner-wrapper:not(.mobile-hide-banner) {
-        height: 76dvh !important;
-        min-height: 500px;
-        max-height: none; /* 移除最大高度限制 */
-        top: 0 !important; 
+        /* height: 500px !important; */
+        /* min-height: 500px; */
+        max-height: none;
+        /* top: 0 !important;  */
     }
     
     /* 主内容区域位置调整 - 确保在banner下面 */
     body.enable-banner .main-content-layout:not(.mobile-main-no-banner) {
-        top: 10dvh !important;
-        min-height: calc(100dvh - 73dvh) !important;
+        /* top: 5rem !important; */
+        /* min-height: 20rem !important; */
     }
     
     /* 横幅文本覆盖层优化 */
@@ -1035,15 +1035,15 @@ body.no-banner-mode #toc-inner-wrapper {
 @media (min-width: 768px) and (max-width: 1279px) {
     /* Banner wrapper 高度优化 */
     body.enable-banner #banner-wrapper:not(.mobile-hide-banner) {
-        height: 70.5dvh !important;
+        /* height: 30rem !important; */
         /* min-height: 400px; */
-        top: 0 !important;
+        /* top: 0 !important; */
     }
     
     /* 主内容区域位置调整 - 确保在banner下面 */
     body.enable-banner .main-content-layout:not(.mobile-main-no-banner) {
-        top: 6dvh !important;
-        min-height: calc(100dvh - 70dvh) !important;
+        /* top: 6rem !important; */
+        /* min-height: calc(100dvh - 70dvh) !important; */
     }
     
     /* 横幅文本覆盖层优化 */
@@ -1421,18 +1421,18 @@ body.no-banner-mode #toc-inner-wrapper {
 /* 移动端横屏优化 */
 @media (max-width: 1279px) and (orientation: landscape) {
     #banner-wrapper:not(.mobile-hide-banner) {
-        top: 0 !important; /* 横屏模式从顶部开始，避免被导航栏覆盖 */
-        height: 60dvh !important;
+        /* top: 0 !important;  */
+        /* height: 60dvh !important; */
     }
     
     /* 主内容区域位置调整 - 确保在banner下面，但不影响非首页 */
     .main-content-layout:not(.mobile-main-no-banner) {
-        min-height: calc(100dvh - 60dvh) !important;
+        /* min-height: calc(100dvh - 60dvh) !important; */
     }
     
     .banner-container {
-        height: 60dvh;
-        min-height: 300px;
+        /* height: 60dvh; */
+        /* min-height: 300px; */
     }
 
     .banner-text-overlay {
@@ -1564,8 +1564,8 @@ body.no-banner-mode #toc-inner-wrapper {
 /* 极小高度屏幕 (高度 ≤ 500px) */
 @media (max-height: 500px) {
     #banner-wrapper {
-        height: 85dvh !important; /*  占用更多高度确保banner显示 */
-        min-height: 350px !important;
+        /* height: 85dvh !important;  */
+        /* min-height: 350px !important; */
     }
     
     .banner-text-overlay {
