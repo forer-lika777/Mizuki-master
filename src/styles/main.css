@@ -723,18 +723,34 @@ html {
   @page {
     size: A4;
     margin: 1cm !important;
+    background-color: var(--card-bg);
   }
 
   html,
   body {
-    background: #ffffff !important;
+    /* background: #ffffff !important; */
     /* color: #000000 !important; */
     /* width: 100% !important; */
     height: auto !important;
     margin: 0 !important;
     padding: 0 !important;
+    background-color: var(--card-bg) !important;
+    background: var(--card-bg);
+    box-shadow: none !important;
+    border: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
+  #post-content-background,
+  #post-container,
+  .card-base {
+    border: none !important;
+    border-width: 0px !important;
+    box-shadow: none !important;
+  }
+
+  .top-gradient-highlight,
   #top-row,
   #banner-wrapper,
   #post-metadata,
@@ -748,6 +764,7 @@ html {
   #sidebar,
   #right-sidebar,
   #back-to-top-wrapper,
+  #export-pdf-modal,
   .footer {
     display: none !important;
   }
@@ -756,12 +773,17 @@ html {
     --tw-translate-y: 0 !important;
   }
 
+  #content-wrapper,
+  #post-content-background,
+  #post-container {
+    border-radius: 0 !important;
+    background-color: var(--card-bg);
+  }
+
   main,
   #post-main-title,
   #post-container {
     display: block !important;
-    /* width: 100% !important; */
-    /* max-width: 100% !important; */
     margin: 0 !important;
     padding: 0 !important;
   }
@@ -770,20 +792,14 @@ html {
   .astro-code,
   .code-block {
     display: block !important;
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-
-    /* background-color: #f8fafc !important; */
-    /* border: 1px solid #e2e8f0 !important; */
     overflow: visible !important;
     white-space: pre-wrap !important; /* 长代码自动换行，防止超出纸张右侧 */
   }
 
-  blockquote,
   img {
     page-break-inside: avoid !important;
-    /* break-inside: avoid !important; */
   }
+
   h1,
   h2,
   h3,
@@ -792,6 +808,110 @@ html {
   h6 {
     page-break-after: avoid !important;
     break-after: avoid !important;
-    /* color: #1a202c !important; */
+  }
+}
+
+/* 第二种：论文排版 */
+@media print {
+  .paper-pdf {
+    /* 字体切换 */
+    html,
+    body {
+      font-family: "Times New Roman", "宋体", serif !important;
+      font-size: 12pt !important;
+      line-height: 1.5 !important;
+      color: #000000 !important;
+    }
+
+    /* *,
+    ::before,
+    ::after {
+      color: #000000 !important;
+      -webkit-text-fill-color: #000000 !important;
+    } */
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Times New Roman", "黑体", sans-serif !important;
+    }
+
+    /* 标题居中 */
+    h1 {
+      text-align: center !important;
+      font-size: 16pt !important;
+    }
+
+    h2 {
+      font-size: 14pt !important;
+    }
+
+    h3 {
+      font-size: 12pt !important;
+    }
+
+    /* 表格加边框 */
+    table {
+      border-top: 1.5pt solid #000000 !important;
+      border-bottom: 1.5pt solid #000000 !important;
+      border-left: none !important;
+      border-right: none !important;
+      border-radius: 0 !important;
+      background-color: transparent !important;
+    }
+
+    th {
+      border-bottom: 0.5pt solid #000000 !important;
+      border-top: none !important;
+      border-left: none !important;
+      border-right: none !important;
+    }
+
+    tr,
+    td {
+      border: none !important;
+    }
+
+    th,
+    tr,
+    td {
+      background-color: transparent !important;
+      color: #000000 !important;
+    }
+
+    /* 强行保护加粗的优秀数据在 PDF 中依然是粗体 */
+    .font-bold,
+    font-bold,
+    b,
+    strong {
+      font-weight: bold !important;
+      -webkit-print-color-adjust: exact;
+    }
+
+    /* 链接颜色 */
+    a {
+      color: #0073ff !important;
+      text-decoration: underline !important;
+    }
+
+    /* 代码块去背景 */
+    code,
+    pre,
+    .astro-code {
+      background-color: transparent !important;
+    }
+
+    code {
+      color: #000 !important;
+    }
+
+    pre,
+    .astro-code {
+      border: 1px solid #ccc !important;
+      border-radius: 4px !important;
+    }
   }
 }
