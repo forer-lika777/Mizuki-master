@@ -722,8 +722,17 @@ html {
 @media print {
   @page {
     size: A4;
-    margin: 1cm !important;
+    margin: 1cm;
+    /* margin-bottom: 1.5cm !important; */
     background-color: var(--card-bg);
+
+    /* @bottom-center {
+      content: counter(page);
+      font-family: "Times New Roman", "宋体", serif;
+      color: var(--card-bg);
+      font-size: 8pt;
+      margin-top: 10mm;
+    } */
   }
 
   html,
@@ -740,6 +749,8 @@ html {
     border: none !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
+    -webkit-print-color-adjust: exact; /* Chrome保留背景 */
+    print-color-adjust: exact; /* 标准属性 */
   }
 
   #post-content-background,
@@ -853,6 +864,19 @@ html {
       font-size: 12pt !important;
     }
 
+    .custom-md p {
+      text-indent: 2em; /* 首行缩进两个字符 */
+    }
+
+    .custom-md ul li::marker,
+    .custom-md ol li::marker {
+      color: #000000 !important;
+    }
+
+    li > p {
+      text-indent: 0em !important;
+    }
+
     /* 表格加边框 */
     table {
       border-top: 1.5pt solid #000000 !important;
@@ -860,6 +884,8 @@ html {
       border-left: none !important;
       border-right: none !important;
       border-radius: 0 !important;
+      /* margin-top: 0.3em !important;
+      margin-bottom: 0.3em !important; */
       background-color: transparent !important;
     }
 
@@ -875,11 +901,18 @@ html {
       border: none !important;
     }
 
+    th {
+      font-weight: 800 !important;
+    }
+
     th,
     tr,
     td {
       background-color: transparent !important;
       color: #000000 !important;
+      padding: 0.3em 1em !important;
+      /* font-weight: normal !important; */
+      text-align: center !important;
     }
 
     /* 强行保护加粗的优秀数据在 PDF 中依然是粗体 */
@@ -888,24 +921,35 @@ html {
     b,
     strong {
       font-weight: bold !important;
-      -webkit-print-color-adjust: exact;
+      /* -webkit-print-color-adjust: exact; */
     }
 
     /* 链接颜色 */
     a {
-      color: #0073ff !important;
+      color: #0645ad !important;
       text-decoration: underline !important;
     }
 
+    .expressive-code .frame[data-language]:not(.has-title):not(.is-terminal)::after {
+      color: #000000 !important;
+      border-radius: 2px !important;
+      background-color: rgba(245, 245, 245, 1) !important;
+    }
+
     /* 代码块去背景 */
-    code,
     pre,
     .astro-code {
       background-color: transparent !important;
     }
 
-    code {
+    .custom-md code {
       color: #000 !important;
+      border-radius: 3px !important;
+      background-color: rgba(225, 225, 225, 1) !important;
+    }
+
+    .expressive-code pre > code {
+      background-color: rgba(245, 245, 245, 1) !important;
     }
 
     pre,

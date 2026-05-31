@@ -156,6 +156,7 @@
     margin-top: 1em;
     margin-bottom: 1em;
     border-spacing: 0;
+    font-size: 1em;
 
     border: 1px solid var(--line-divider);
     border-radius: var(--radius-large);

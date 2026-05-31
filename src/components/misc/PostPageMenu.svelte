@@ -1,6 +1,8 @@
 <script lang="ts">
 import Icon from "@iconify/svelte";
 import { onMount } from "svelte";
+import { getStoredTheme, applyThemeToDocument } from "@utils/setting-utils";
+import { DARK_MODE, LIGHT_MODE, DEFAULT_THEME } from "@constants/constants";
 
 let showModal = false;
 
@@ -52,11 +54,37 @@ function handleExportPaperStyle() {
     document.documentElement.classList.add('paper-pdf');
     document.documentElement.style.setProperty('--card-bg', '#ffffff');
     document.documentElement.style.setProperty('--deep-text', '#000000');
-    window.print();
-    // 恢复原来的变量值和样式
-    document.documentElement.classList.remove('paper-pdf');
-    document.documentElement.style.removeProperty('--card-bg');
-    document.documentElement.style.removeProperty('--deep-text');
+    
+    let currentTheme = getStoredTheme();
+    applyThemeToDocument(LIGHT_MODE); // 强制切换到亮色模式，确保论文样式正确显示
+
+    const pageStyle = document.createElement('style');
+    pageStyle.id = 'paper-page-number-style';
+    pageStyle.textContent = `
+        @page {
+            margin-bottom: 2cm !important;
+            @bottom-center {
+                content: counter(page);
+                font-family: "Times New Roman", "宋体", serif;
+                font-size: 10pt;
+            }
+        }
+    `;
+    document.head.appendChild(pageStyle);
+
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            window.print();
+            // 恢复主题
+            document.documentElement.classList.remove('paper-pdf');
+            document.documentElement.style.removeProperty('--card-bg');
+            document.documentElement.style.removeProperty('--deep-text');
+            applyThemeToDocument(currentTheme);
+
+            const injectedStyle = document.getElementById('paper-page-number-style');
+            if (injectedStyle) injectedStyle.remove();
+            });
+    });
 }
 </script>
 
@@ -88,15 +116,15 @@ function handleExportPaperStyle() {
     <!-- svelte-ignore a11y_click_events_have_key_events -->
     <!-- svelte-ignore a11y_no_static_element_interactions -->
     <div use:portal id="export-pdf-modal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center" on:click={closeModal}>
-        <div class="bg-[var(--card-bg)] rounded-[var(--radius-large)] p-6 w-[90%] max-w-3xl" on:click|stopPropagation>
-            <h2 class="text-xl font-bold mb-4 dark:text-white/75">Export PDF</h2>
+        <div class="bg-[var(--card-bg)] rounded-[var(--radius-large)] p-4 w-[90%] max-w-3xl" on:click|stopPropagation>
+            <h2 class="text-xl font-bold dark:text-white/75 p-3">Export PDF</h2>
             <button class="btn-plain px-4 py-2 rounded-lg mb-4 flex justify-start w-full" on:click={handleExportWebStyle}>
                 <div class="flex flex-col items-start py-2 px-2">
                     <div class="text-xl font-bold pb-3">以原网页样式为标准导出PDF</div>
                     <div>使用网页中的主题颜色、背景图形、字体等，保留原始网页样式</div>
                 </div>
             </button>
-            <button class="btn-plain px-4 py-2 rounded-lg mb-4 flex justify-start w-full" on:click={handleExportPaperStyle}>
+            <button class="btn-plain px-4 py-2 rounded-lg flex justify-start w-full" on:click={handleExportPaperStyle}>
                 <div class="flex flex-col items-start py-2 px-2">
                     <div class="text-xl font-bold pb-3">以正规论文、设计排版为标准导出PDF</div>
                     <div>使用专业的论文和设计排版样式导出PDF</div>
