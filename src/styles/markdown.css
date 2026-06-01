@@ -78,7 +78,7 @@
 
   /* --- 代码块 --- */
   code {
-    @apply bg-[var(--inline-code-bg)] text-[var(--inline-code-color)] px-1 py-0.5 rounded-md overflow-hidden;
+    @apply bg-[var(--inline-code-bg)] text-[var(--inline-code-color)] px-1 py-0.5 rounded-md;
 
     font-family: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
@@ -101,6 +101,55 @@
       }
     }
   }
+
+  .expressive-code {
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+  }
+
+  .expressive-code pre.wrap .ec-line .code {
+    white-space: nowrap;
+  }
+
+  /* .expressive-code pre {
+    scrollbar-width: thin;
+  } */
+
+  /* .expressive-code pre > code {
+    margin-bottom: 0.5em;
+  } */
+
+  .expressive-code .frame {
+    width: max-content;
+    min-width: stretch;
+  }
+
+  .expressive-code.collapsible .frame pre {
+    margin-bottom: 0.5em;
+  }
+
+  /* .frame {
+    position: relative;
+    overflow: visible;
+  } */
+
+  /* .expressive-code .copy-btn {
+    position: sticky;
+    top: 0.75rem;
+    right: 0.75rem;
+    float: right;
+    margin-right: 0.75rem;
+    z-index: 20;
+  }
+
+  .expressive-code.collapsible .collapse-toggle-btn {
+    position: sticky;
+    top: 0.75rem;
+    float: right;
+    margin-right: 3.5rem;
+    z-index: 20;
+  } */
 
   /* --- 列表 --- */
   ul,
@@ -129,11 +178,12 @@
   .table-wrapper {
     @apply w-full overflow-x-auto m-0 rounded-[var(--radius-large)];
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
 
     /* --- 滚动条样式 --- */
-    &::-webkit-scrollbar {
+    /* &::-webkit-scrollbar {
       height: 6px;
-      width: 6px;
+      width: thin;
     }
     &::-webkit-scrollbar-track {
       background: transparent;
@@ -148,7 +198,7 @@
     }
     &::-webkit-scrollbar-thumb:active {
       background: var(--scrollbar-bg-active);
-    }
+    } */
   }
 
   table {
