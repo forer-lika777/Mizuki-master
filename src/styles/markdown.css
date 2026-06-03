@@ -129,6 +129,7 @@
   .table-wrapper {
     @apply w-full overflow-x-auto m-0 rounded-[var(--radius-large)];
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
 
     /* --- 滚动条样式 --- */
     &::-webkit-scrollbar {
@@ -152,14 +153,14 @@
   }
 
   table {
-    @apply w-full border-separate m-0 bg-[var(--card-bg)];
+    @apply w-full border-separate m-0 bg-[var(--table-row-odd)];
     margin-top: 1em;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
     border-spacing: 0;
     font-size: 1em;
 
-    border: 1px solid var(--line-divider);
-    border-radius: var(--radius-large);
+    border: 1pt solid var(--table-line-divider);
+    border-radius: var(--radius-medium);
 
     overflow: hidden;
   }
@@ -167,8 +168,8 @@
   th,
   td {
     @apply px-4 py-3 whitespace-nowrap;
-    border-bottom: 1px solid var(--line-divider);
-    border-right: 1px solid var(--line-divider);
+    border-bottom: 1pt solid var(--table-line-divider);
+    border-right: 1pt solid var(--table-line-divider);
     transition: none;
   }
 
@@ -191,7 +192,7 @@
     background-color: var(--table-row-even);
   }
   tr:hover td {
-    background-color: var(--btn-plain-bg-hover);
+    background-color: var(--table-row-hover);
     transition: none;
   }
 

@@ -100,8 +100,11 @@ define({
   --toc-width: calc((100vw - var(--page-width)) / 2 - 1rem)
   --toc-item-active: oklch(0.70 0.13 var(--hue)) oklch(0.35 0.07 var(--hue))
 
-  --table-header: var(--table-row-even)
-  --table-row-even: oklch(0.95 0.025 var(--hue)) oklch(0.27 0.028 var(--hue))
+  --table-header: oklch(0.95 0.025 var(--hue)) oklch(0.27 0.028 var(--hue))
+  --table-line-divider: var(--table-header)
+  --table-row-odd: var(--card-bg)
+  --table-row-even: var(--table-header)
+  --table-row-hover: oklch(0.91 0.020 var(--hue)) oklch(0.3 0.028 var(--hue))
 })
 
 /* 非全屏壁纸模式下，--card-bg-transparent 应该和 --card-bg 一致（不透明） */
