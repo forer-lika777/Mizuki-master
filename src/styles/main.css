@@ -788,8 +788,14 @@ html {
   .astro-code,
   .code-block {
     display: block !important;
-    overflow: visible !important;
-    white-space: pre-wrap !important; /* 长代码自动换行，防止超出纸张右侧 */
+    overflow: none !important;
+    overflow-x: hidden !important;
+    white-space: pre-line !important; /* 长代码自动换行，防止超出纸张右侧 */
+  }
+
+  .expressive-code pre.wrap .ec-line .code {
+    white-space: pre-line !important;
+    overflow-x: hidden !important;
   }
 
   img {

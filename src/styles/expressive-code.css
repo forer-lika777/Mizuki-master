@@ -71,27 +71,26 @@
   user-select: text;
 }
 
-/* .expressive-code pre > code {
-  padding: 1em !important;
-} */
-
 .expressive-code.collapsible .frame pre {
-  overflow-x: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--primary) var(--code-background);
 }
 
 /* 在右侧添加一定宽度的元素用作右边距 */
-.expressive-code pre .ec-line .code::after {
+/* .expressive-code pre .ec-line .code.has-content-code::after {
   content: "";
   display: inline-block;
   width: 7em;
   height: 1px;
-}
+  vertical-align: bottom;
+} */
 
-.expressive-code pre.wrap .ec-line .code {
+/* .expressive-code .gutter .ln {
+  padding-inline: 1ch !important;
+} */
+
+/* pre.wrap .ec-line .code {
   white-space: pre !important;
-  overflow-wrap: normal !important;
 }
 
 .expressive-code pre,
@@ -101,8 +100,8 @@
 }
 
 .expressive-code {
-  overflow-x: auto; /* 滚动条出现在这里 */
-}
+  overflow-x: auto;
+} */
 
 /* 代码行号不可选，但行内容可选 */
 .expressive-code code span.line::before {
