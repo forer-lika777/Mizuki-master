@@ -1,5 +1,3 @@
-/* 动画增强样式 - 参考 yukina 主题优化 */
-
 /* 页面切换状态类 */
 html.is-leaving .transition-leaving {
   transform: translateY(-1rem);
