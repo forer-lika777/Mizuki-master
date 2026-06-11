@@ -389,7 +389,7 @@ if (siteConfig.font) {
 				style="display:none;visibility:hidden"></iframe></noscript
 		>
 		<!-- 页面顶部渐变高光效果 - 只在full和semifull模式下显示 -->
-		{shouldShowTopHighlight && <div class="top-gradient-highlight" />}
+		{shouldShowTopHighlight && <div class="top-gradient-highlight no-print" />}
 
 		<ConfigCarrier />
 		<slot />
@@ -875,6 +875,14 @@ function disableAnimation() {
 		}
 	}
 
+	function addCodeBlank(){
+		document.querySelectorAll('.expressive-code .ec-line .code').forEach(code => {
+			if (code.textContent.trim() !== '') {
+				code.classList.add('has-content-code');
+			}
+		});
+	}
+
 	// 图片灯箱按需加载
 	async function initFancybox() {
 		const albumImagesSelector =
@@ -1007,6 +1015,7 @@ function disableAnimation() {
 			initFancybox();
 			checkKatex();
 			initCustomScrollbar();
+			addCodeBlank();
 			// console.log("content:replace");
 			// 检查当前页面是否为文章页面（有TOC元素）
 			const tocWrapper = document.getElementById("toc-wrapper");

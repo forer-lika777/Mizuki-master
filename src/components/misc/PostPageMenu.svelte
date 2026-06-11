@@ -115,7 +115,7 @@ function handleExportPaperStyle() {
 {#if showModal}
     <!-- svelte-ignore a11y_click_events_have_key_events -->
     <!-- svelte-ignore a11y_no_static_element_interactions -->
-    <div use:portal id="export-pdf-modal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center" on:click={closeModal}>
+    <div use:portal id="export-pdf-modal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center no-print" on:click={closeModal}>
         <div class="bg-[var(--card-bg)] rounded-[var(--radius-large)] p-4 w-[90%] max-w-3xl" on:click|stopPropagation>
             <h2 class="text-xl font-bold dark:text-white/75 p-3">Export PDF</h2>
             <button class="btn-plain px-4 py-2 rounded-lg mb-4 flex justify-start w-full" on:click={handleExportWebStyle}>

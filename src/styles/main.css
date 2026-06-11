@@ -761,22 +761,7 @@ html {
     box-shadow: none !important;
   }
 
-  .top-gradient-highlight,
-  #top-row,
-  #banner-wrapper,
-  #post-metadata,
-  #post-statistics-info,
-  #post-page-top-operation-component,
-  #music-player-button,
-  #share-component,
-  #license-component,
-  #last-edit-time-component,
-  #next-and-previous-article-button-component,
-  #sidebar,
-  #right-sidebar,
-  #back-to-top-wrapper,
-  #export-pdf-modal,
-  .footer {
+  .no-print {
     display: none !important;
   }
 

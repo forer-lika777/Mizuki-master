@@ -589,14 +589,14 @@ const transparentClass = "";
 <div id="root-grid" class="grid grid-cols-1" class="relative"  style="height: auto;" >
     <!-- Navbar -->
     <slot slot="head" name="head"></slot>
-    <div id="top-row" class="" class:list={[""]}>
+    <div id="top-row" class="no-print" class:list={[""]}>
         <div id="navbar-wrapper" class="pointer-events-auto fixed z-50 top-0">
             <Navbar></Navbar>
         </div>
     </div>
 
     <!-- Banner - 始终渲染，通过 JS 控制显示隐藏 -->
-    <div id="banner-wrapper" class={`col-start-1 row-start-1 absolute z-10 w-full overflow-hidden ${mobileNonHomeBannerClass}`} style={``}>
+    <div id="banner-wrapper" class={`col-start-1 row-start-1 absolute z-10 w-full overflow-hidden ${mobileNonHomeBannerClass} no-print`} style={``}>
 
         {siteConfig.banner.carousel?.enable && ((bannerImages.desktop && Array.isArray(bannerImages.desktop) && bannerImages.desktop.length > 1) || (bannerImages.mobile && Array.isArray(bannerImages.mobile) && bannerImages.mobile.length > 1)) ? (
             <!-- Carousel mode for multiple images -->
@@ -820,7 +820,7 @@ const transparentClass = "";
                     )}
                     
                     {hasRightSidebarComponents && (
-                        <div id="right-sidebar" class={`right-sidebar-container ${rightSidebarClass} ${transparentClass}`}>
+                        <div id="right-sidebar" class={`right-sidebar-container ${rightSidebarClass} ${transparentClass} no-print`}>
                             <RightSideBar headings={headings}></RightSideBar>
                         </div>
                     )}
@@ -831,13 +831,13 @@ const transparentClass = "";
                         <!-- the overflow-hidden here prevent long text break the layout-->
                         <!-- make id different from windows.swup global property -->
                         <slot></slot>
-                        <div class="footer col-span-full onload-animation hidden lg:block">
+                        <div class="footer col-span-full onload-animation hidden lg:block no-print">
                             <Footer></Footer>
                         </div>
                     </div>
                 </main>
 
-                <div class="footer col-span-full onload-animation block lg:hidden">
+                <div class="footer col-span-full onload-animation block lg:hidden no-print">
                     <Footer></Footer>
                 </div>
             </div>
