@@ -53,6 +53,11 @@
     margin-bottom: 0em;
   }
 
+  ul {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
   /* 分割线 */
   hr {
     margin-top: 2em;
@@ -116,7 +121,9 @@
     font-weight: inherit;
 
     &:before {
-      @apply content-[''] absolute left-0 block transition bg-[var(--btn-regular-bg)] h-full w-1 rounded-full;
+      @apply content-[''] absolute block transition bg-[var(--btn-regular-bg)] h-full w-1;
+      left: 0;
+      border-radius: 9999px;
     }
 
     p:before,
@@ -154,7 +161,7 @@
 
   table {
     @apply w-full border-separate m-0 bg-[var(--table-row-odd)];
-    margin-top: 1em;
+    margin-top: 0.5em;
     margin-bottom: 0.5em;
     border-spacing: 0;
     font-size: 1em;
@@ -167,7 +174,8 @@
 
   th,
   td {
-    @apply px-4 py-3 whitespace-nowrap;
+    padding: 1rem 0.75rem;
+    white-space: nowrap;
     border-bottom: 1pt solid var(--table-line-divider);
     border-right: 1pt solid var(--table-line-divider);
     transition: none;

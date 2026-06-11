@@ -802,6 +802,14 @@ html {
     page-break-inside: avoid !important;
   }
 
+  th,
+  td {
+    padding: 1rem 0.75rem !important;
+    white-space: pre-wrap !important;
+    overflow-wrap: normal;
+    vertical-align: top !important;
+  }
+
   h1,
   h2,
   h3,
@@ -824,13 +832,6 @@ html {
       line-height: 1.5 !important;
       color: #000000 !important;
     }
-
-    /* *,
-    ::before,
-    ::after {
-      color: #000000 !important;
-      -webkit-text-fill-color: #000000 !important;
-    } */
 
     h1,
     h2,
@@ -864,8 +865,19 @@ html {
       color: #000000 !important;
     }
 
-    li > p {
-      text-indent: 0em !important;
+    li > p,
+    blockquote {
+      text-indent: 0 !important;
+      padding-inline-start: 0 !important;
+    }
+
+    blockquote::before {
+      left: 1em;
+      background-color: rgba(225, 225, 225, 1) !important;
+    }
+
+    .table-wrapper {
+      overflow-x: hidden;
     }
 
     /* 表格加边框 */
