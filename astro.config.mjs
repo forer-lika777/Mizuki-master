@@ -78,7 +78,8 @@ export default defineConfig({
 				pluginCustomCopyButton(),
 			],
 			defaultProps: {
-				wrap: true,
+				wrap: false,
+				showLineNumbers: false,
 				overridesByLang: {
 					shellsession: { showLineNumbers: false },
 					bash: { frame: "code" },
@@ -89,7 +90,9 @@ export default defineConfig({
 			},
 			styleOverrides: {
 				codeBackground: "var(--codeblock-bg)",
-				borderRadius: "0.75rem",
+				borderRadius: "0.5rem",
+				codePaddingBlock: "0.8rem",
+				// codePaddingInline: "0.1rem",
 				borderColor: "none",
 				codeFontSize: "0.875rem",
 				codeFontFamily:
@@ -110,6 +113,9 @@ export default defineConfig({
 					delHue: 0,
 					insHue: 180,
 					markHue: 250,
+				},
+				languageBadge: {
+					opacity: "0.5",
 				},
 			},
 			frames: {
@@ -194,4 +200,3 @@ export default defineConfig({
 		},
 	},
 });
-
