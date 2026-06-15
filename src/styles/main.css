@@ -726,13 +726,25 @@ html {
     /* margin-bottom: 1.5cm !important; */
     background-color: var(--card-bg);
 
-    /* @bottom-center {
+    @bottom-center {
       content: counter(page);
-      font-family: "Times New Roman", "宋体", serif;
+      /* font-family: "Times New Roman", "宋体", serif;
       color: var(--card-bg);
       font-size: 8pt;
-      margin-top: 10mm;
-    } */
+      margin-top: 10mm; */
+    }
+  }
+
+  @page reset-page {
+    counter-reset: page 1;
+    @bottom-center {
+      content: counter(page);
+    }
+  }
+
+  Markdown {
+    break-before: page;
+    counter-reset: page 1;
   }
 
   html,
@@ -846,6 +858,7 @@ html {
     h1 {
       text-align: center !important;
       font-size: 16pt !important;
+      break-before: page;
     }
 
     h2 {
