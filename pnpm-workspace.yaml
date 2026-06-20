@@ -1,6 +1,4 @@
 allowBuilds:
-  core-js: set this to true or false
-  es5-ext: set this to true or false
   esbuild: true
   sharp: true
   ttf2woff2: true
