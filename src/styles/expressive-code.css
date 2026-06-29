@@ -71,7 +71,7 @@
   user-select: text;
 }
 
-.expressive-code.collapsible .frame pre {
+.expressive-code .frame pre {
   scrollbar-width: thin;
   scrollbar-color: var(--primary) var(--code-background);
 }
